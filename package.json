@@ -1,0 +1,23 @@
+{
+  "name": "cafe-my-frapey",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cafe My Frapey - Smart Campus Food Pre-Ordering & Cafe Management Platform",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "migrate": "npm --workspace server run migrate",
+    "seed": "npm --workspace server run seed",
+    "dev:server": "npm --workspace server run dev",
+    "dev:web": "npm --workspace web run dev",
+    "build": "npm --workspace server run build && npm --workspace web run build",
+    "test": "npm --workspace server run test",
+    "typecheck": "npm --workspace server run typecheck && npm --workspace web run typecheck"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

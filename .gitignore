@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Builds
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Database (local SQLite)
+*.db
+*.db-shm
+*.db-wal
+server/data/
+
+# Logs
+logs/
+*.log
+*.err
+npm-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+
+# Uploads (local dev image storage)
+server/uploads/*
+!server/uploads/.gitkeep
