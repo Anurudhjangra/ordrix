@@ -51,7 +51,7 @@ export function HomePage() {
               Order in class, <span className="text-gradient-animated">collect between classes.</span>
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-coffee-200 sm:text-lg">
-              Pre-order frappes, coffee and snacks from Cafe My Frappe, pay online in sandbox, and grab
+              Pre-order coffee, meals and snacks from ORDRIX, pay online in sandbox, and grab
               your order with a single <span className="font-semibold text-cream-50">pickup code</span> — no
               line, no wait, no rush.
             </p>
@@ -102,7 +102,7 @@ export function HomePage() {
                   <IconQR size={18} />
                 </span>
                 <span className="text-xs">
-                  <span className="block font-bold text-coffee-900">MF-0427</span>
+                  <span className="block font-bold text-coffee-900">OR-0427</span>
                   <span className="text-stone-500">Ready to collect</span>
                 </span>
               </div>
@@ -158,7 +158,7 @@ export function HomePage() {
             icon={<IconCup size={22} />}
             step="01"
             title="Order in class"
-            body="Browse the live menu, customise your frappe, pick a pickup window and pay online."
+            body="Browse the live menu, customise your order, pick a pickup window and pay online."
           />
           <HowStep
             icon={<IconFlame size={22} />}

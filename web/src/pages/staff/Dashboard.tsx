@@ -5,6 +5,7 @@ import { formatCount, formatDateTime, formatPaise, PAYMENT_LABELS } from '../../
 import { onSocket } from '../../lib/socket';
 import { Alert, Button, Loader, Modal, SectionTitle, StatusBadge } from '../../components/ui';
 import type { Order } from '../../lib/types';
+import { OutletSelect } from './OutletSelect';
 
 interface DashboardData {
   cafeId: string;
@@ -112,26 +113,28 @@ export function StaffDashboardPage() {
     }
   };
 
+  const completeRefund = async (orderId: string) => {
+    setBusy(true);
+    setError(null);
+    try {
+      await apiPost(`/api/staff/orders/${orderId}/refund`, {});
+      await load();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Could not mark refund complete');
+    } finally {
+      setBusy(false);
+    }
+  };
+
   return (
     <div>
       <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
         <SectionTitle title="Cafe dashboard" subtitle="Live orders, workload, and sales at a glance." />
-        {data.cafes.length > 1 ? (
-          <label className="flex items-center gap-2 text-xs font-semibold text-stone-500">
-            Outlet
-            <select
-              className="input max-w-[220px] py-1.5"
-              value={selectedCafeId ?? data.cafeId}
-              onChange={(e) => setSelectedCafeId(e.target.value)}
-            >
-              {data.cafes.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {c.name}
-                </option>
-              ))}
-            </select>
-          </label>
-        ) : null}
+        <OutletSelect
+          cafes={data.cafes}
+          value={selectedCafeId ?? data.cafeId}
+          onChange={setSelectedCafeId}
+        />
       </div>
       {error ? <div className="mb-4"><Alert>{error}</Alert></div> : null}
 
@@ -166,7 +169,7 @@ export function StaffDashboardPage() {
                 <span>
                   #{o.order_number} · {formatPaise(o.total_paise)} · {PAYMENT_LABELS[o.payment_status]}
                 </span>
-                <Button size="sm" onClick={() => apiPost(`/api/staff/orders/${o.id}/refund`, {}).then(load).catch(() => {})}>
+                <Button size="sm" loading={busy} onClick={() => completeRefund(o.id)}>
                   Mark refund done
                 </Button>
               </li>
@@ -234,7 +237,12 @@ export function StaffDashboardPage() {
       {target ? (
         <ActionModal target={target} reason={reason} setReason={setReason} busy={busy} onConfirm={runAction} onClose={() => setTarget(null)} />
       ) : null}
-      <VerifyPickupModal open={verifyOpen} onClose={() => setVerifyOpen(false)} cafeId={data.cafeId} onCollected={load} />
+      <VerifyPickupModal
+        open={verifyOpen}
+        onClose={() => setVerifyOpen(false)}
+        cafeId={selectedCafeId ?? data.cafeId}
+        onCollected={load}
+      />
     </div>
   );
 }
@@ -337,7 +345,7 @@ function VerifyPickupModal({ open, onClose, cafeId, onCollected }: { open: boole
       <div className="grid gap-3">
         <label className="label">Token</label>
         <div className="flex gap-2">
-          <input className="input uppercase" value={token} onChange={(e) => setToken(e.target.value.toUpperCase().slice(0, 10))} placeholder="MF-0000" />
+          <input className="input uppercase" value={token} onChange={(e) => setToken(e.target.value.toUpperCase().slice(0, 10))} placeholder="OR-0000" />
           <Button variant="primary" loading={busy} onClick={verify}>
             Verify
           </Button>

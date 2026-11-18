@@ -4,44 +4,18 @@ import { get, run, tx } from '../db/index.js';
 import { runMigrations } from '../db/migrate.js';
 import { id } from '../lib/ids.js';
 
-const CAFE_ID = 'cafe-my-frapey';
-const OWNER_ID = 'user-owner';
-const ADMIN_ID = 'user-admin';
+import {
+  ADMIN_ID,
+  CAFE_BRAND,
+  CAFE_DESCRIPTION,
+  CAFE_PHONE,
+  CAFE_TAGLINE,
+  OWNER_ID,
+  OUTLETS,
+  PICKUP_SLOTS,
+} from './branding.js';
+
 const STUDENT_ID = 'user-student';
-
-/**
- * Cafe My Frappe runs two outlets on the MDU campus. Students pick which outlet
- * (UIET or IMSAR) to order from. Both share the same menu but keep their own
- * pickup slots, opening hours and orders. `CAFE_ID` is kept as the first outlet's
- * id for backwards compatibility.
- */
-const OUTLETS: { id: string; name: string; slug: string; address: string }[] = [
-  {
-    id: CAFE_ID,
-    name: 'Cafe My Frappe · UIET',
-    slug: 'cafe-my-frappe-uiet',
-    address: 'UIET, Maharshi Dayanand University, Rohtak, Haryana',
-  },
-  {
-    id: 'cafe-my-frappe-imsar',
-    name: 'Cafe My Frappe · IMSAR',
-    slug: 'cafe-my-frappe-imsar',
-    address: 'IMSAR, Maharshi Dayanand University, Rohtak, Haryana',
-  },
-];
-
-const CAFE_TAGLINE = 'Happiness is a Cup of Coffee';
-const CAFE_DESCRIPTION =
-  'Cafe My Frappe serves cold coffee, burgers, wraps, garlic bread, Chinese, loaded fries and freshly made pizzas on the MDU campus, Rohtak.';
-const CAFE_PHONE = '999-605-2000';
-const CAFE_BRAND = '#ED1B24';
-
-const PICKUP_SLOTS: [string, string, string, number][] = [
-  ['Break 1 (10:45 - 11:15)', '10:45', '11:15', 30],
-  ['Lunch (13:00 - 14:00)', '13:00', '14:00', 40],
-  ['Break 2 (15:45 - 16:15)', '15:45', '16:15', 30],
-  ['Evening (17:30 - 18:30)', '17:30', '18:30', 25],
-];
 
 interface SeedOption {
   group: string;
@@ -60,7 +34,7 @@ interface SeedItem {
 }
 
 /**
- * Cafe My Frapey menu (official pricing supplied by the cafe).
+ * ORDRIX menu (official pricing supplied by the cafe).
  * Prices are in paise. Half/full items are modelled with a "Size" option group
  * where the base price is the Half portion and "Full" carries the difference.
  */
@@ -232,7 +206,7 @@ export function seed(): void {
 
   tx(() => {
     // Users
-    upsertUser(OWNER_ID, config.seed.ownerEmail, 'Cafe My Frappe Owner', config.seed.ownerPassword, 'owner');
+    upsertUser(OWNER_ID, config.seed.ownerEmail, 'ORDRIX Owner', config.seed.ownerPassword, 'owner');
     upsertUser(ADMIN_ID, config.seed.adminEmail, 'Platform Admin', config.seed.adminPassword, 'admin');
     upsertUser(STUDENT_ID, config.seed.studentEmail, 'MDU Student', config.seed.studentPassword, 'student');
 

@@ -1,8 +1,8 @@
 {
-  "name": "cafe-my-frapey",
+  "name": "ordrix",
   "version": "1.0.0",
   "private": true,
-  "description": "Cafe My Frapey - Smart Campus Food Pre-Ordering & Cafe Management Platform",
+  "description": "ORDRIX - Smart Campus Food Pre-Ordering & Cafe Management Platform",
   "workspaces": [
     "server",
     "web"

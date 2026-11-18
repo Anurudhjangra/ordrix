@@ -14,12 +14,11 @@ export function LoginPage() {
 
   const from = (location.state as { from?: string } | null)?.from ?? '/';
 
-  const onSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+  const signIn = async (loginEmail: string, loginPassword: string) => {
     setError(null);
     setBusy(true);
     try {
-      const user = await login(email, password);
+      const user = await login(loginEmail, loginPassword);
       navigate(user.role === 'admin' ? '/admin' : user.role === 'owner' || user.role === 'staff' ? '/staff' : from, {
         replace: true,
       });
@@ -28,6 +27,11 @@ export function LoginPage() {
     } finally {
       setBusy(false);
     }
+  };
+
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    return signIn(email, password);
   };
 
   return (
@@ -42,7 +46,7 @@ export function LoginPage() {
               <IconCup size={22} />
             </span>
             <span className="font-display text-xl font-extrabold text-cream-50">
-              Cafe <span className="text-gradient">My Frappe</span>
+              <span className="text-gradient">ORDRIX</span>
             </span>
           </Link>
         </div>
@@ -66,11 +70,11 @@ export function LoginPage() {
       {/* Form panel */}
       <div className="relative p-6 sm:p-10">
         <div className="rounded-xl bg-cream-100/80 px-4 py-3 text-xs leading-relaxed text-stone-500">
-          <strong className="text-coffee-700">Demo accounts</strong> — pick one to autofill:
+          <strong className="text-coffee-700">Demo accounts</strong> — click one to sign in directly:
           <div className="mt-1.5 flex flex-wrap gap-1.5">
-            <DemoChip label="Student" onClick={() => { setEmail('student@mdu.test'); setPassword('Student@12345'); }} />
-            <DemoChip label="Owner" onClick={() => { setEmail('owner@cafemyfrapey.test'); setPassword('Owner@12345'); }} />
-            <DemoChip label="Admin" onClick={() => { setEmail('admin@cafemyfrapey.test'); setPassword('Admin@12345'); }} />
+            <DemoChip label="Student" disabled={busy} onClick={() => signIn('student@mdu.test', 'Student@12345')} />
+            <DemoChip label="Owner" disabled={busy} onClick={() => signIn('owner@ordrix.test', 'Owner@12345')} />
+            <DemoChip label="Admin" disabled={busy} onClick={() => signIn('admin@ordrix.test', 'Admin@12345')} />
           </div>
         </div>
 
@@ -110,12 +114,13 @@ function AuthPoint({ label }: { label: string }) {
   );
 }
 
-function DemoChip({ label, onClick }: { label: string; onClick: () => void }) {
+function DemoChip({ label, onClick, disabled }: { label: string; onClick: () => void; disabled?: boolean }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="rounded-full border border-coffee-200 bg-white px-2.5 py-1 text-[11px] font-bold text-coffee-700 transition hover:border-accent-500 hover:text-accent-700"
+      disabled={disabled}
+      className="rounded-full border border-coffee-200 bg-white px-2.5 py-1 text-[11px] font-bold text-coffee-700 transition hover:border-accent-500 hover:text-accent-700 disabled:cursor-not-allowed disabled:opacity-60"
     >
       {label}
     </button>

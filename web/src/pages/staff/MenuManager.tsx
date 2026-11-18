@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { apiGet, apiPost, apiPatch, apiDelete } from '../../lib/api';
 import { formatPaise } from '../../lib/format';
 import { Alert, Button, Field, Input, Loader, Modal, SectionTitle, Textarea } from '../../components/ui';
+import { OutletSelect } from './OutletSelect';
 
 interface Row {
   id: string;
@@ -38,6 +39,8 @@ interface MenuData {
 
 export function StaffMenuPage() {
   const [cafeId, setCafeId] = useState<string | null>(null);
+  const [cafes, setCafes] = useState<{ id: string; name: string }[]>([]);
+  const [selectedCafeId, setSelectedCafeId] = useState<string | null>(null);
   const [menu, setMenu] = useState<MenuData | null>(null);
   const [options, setOptions] = useState<OptionRow[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -48,12 +51,18 @@ export function StaffMenuPage() {
   const [optionModal, setOptionModal] = useState<ItemRow | null>(null);
 
   const load = useCallback(async () => {
+    setLoading(true);
     try {
-      const cafeIdRes = await apiGet<{ cafeId: string }>('/api/staff/dashboard');
-      setCafeId(cafeIdRes.cafeId);
+      const qs = selectedCafeId ? `?cafeId=${encodeURIComponent(selectedCafeId)}` : '';
+      const dashboard = await apiGet<{ cafeId: string; cafes: { id: string; name: string }[] }>(
+        `/api/staff/dashboard${qs}`,
+      );
+      const activeCafeId = selectedCafeId ?? dashboard.cafeId;
+      setCafes(dashboard.cafes);
+      setCafeId(activeCafeId);
       const [m, pub] = await Promise.all([
-        apiGet<MenuData>(`/api/staff/menu?cafeId=${cafeIdRes.cafeId}`),
-        apiGet<{ options: OptionRow[] }>(`/api/cafes/${cafeIdRes.cafeId}/menu`),
+        apiGet<MenuData>(`/api/staff/menu?cafeId=${encodeURIComponent(activeCafeId)}`),
+        apiGet<{ options: OptionRow[] }>(`/api/cafes/${encodeURIComponent(activeCafeId)}/menu`),
       ]);
       setMenu(m);
       setOptions(pub.options);
@@ -62,7 +71,7 @@ export function StaffMenuPage() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [selectedCafeId]);
 
   useEffect(() => {
     load();
@@ -73,7 +82,12 @@ export function StaffMenuPage() {
 
   return (
     <div>
-      <SectionTitle title="Menu manager" subtitle="Categories, items, options, and availability." />
+      <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+        <SectionTitle title="Menu manager" subtitle="Categories, items, options, and availability." />
+        {cafeId ? (
+          <OutletSelect cafes={cafes} value={cafeId} onChange={setSelectedCafeId} />
+        ) : null}
+      </div>
       {error ? <div className="mb-4"><Alert>{error}</Alert></div> : null}
 
       <div className="mb-6 flex flex-wrap gap-2">
@@ -192,7 +206,7 @@ function CategoryModal({ cafeId, onClose, onSaved }: { cafeId: string; onClose: 
     <Modal open onClose={onClose} title="New category">
       {error ? <div className="mb-3"><Alert>{error}</Alert></div> : null}
       <Field label="Category name">
-        <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Frappes" />
+        <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Cold Drinks" />
       </Field>
       <div className="mt-4 flex justify-end gap-2">
         <Button variant="ghost" onClick={onClose}>Cancel</Button>
@@ -215,7 +229,7 @@ function ItemModal({ cafeId, categoryId, categories, onClose, onSaved }: { cafeI
         categoryId: form.categoryId,
         name: form.name,
         description: form.description || null,
-        pricePaise: Math.round(Number(form.pricePaise)),
+        pricePaise: Math.round(Number(form.pricePaise) * 100),
         isVeg: true,
         isAvailable: true,
         prepMinutes: 5,
@@ -240,7 +254,7 @@ function ItemModal({ cafeId, categoryId, categories, onClose, onSaved }: { cafeI
           </select>
         </Field>
         <Field label="Name">
-          <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="e.g. Mocha Frappe" />
+          <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="e.g. Cold Coffee" />
         </Field>
         <Field label="Description">
           <Textarea rows={2} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} placeholder="Short description (optional)" />
@@ -268,7 +282,7 @@ function OptionModal({ item, onClose, onSaved }: { item: ItemRow; onClose: () =>
       await apiPost(`/api/staff/menu/items/${item.id}/options`, {
         groupName: form.groupName,
         name: form.name,
-        priceDeltaPaise: Math.round(Number(form.priceDeltaPaise)),
+        priceDeltaPaise: Math.round(Number(form.priceDeltaPaise) * 100),
       });
       onSaved();
       onClose();

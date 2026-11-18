@@ -18,7 +18,7 @@ describe('order lifecycle', () => {
   beforeAll(setupDatabase);
 
   it('customer can browse the cafe menu', async () => {
-    const res = await app.get('/api/cafes/cafe-my-frapey/menu');
+    const res = await app.get('/api/cafes/ordrix/menu');
     expect(res.status).toBe(200);
     expect(res.body.categories.length).toBeGreaterThan(0);
     expect(res.body.items.length).toBeGreaterThan(0);
@@ -33,19 +33,19 @@ describe('order lifecycle', () => {
     expect(detail.body.order.order_number).toMatch(/^\d+$/);
     expect(detail.body.order.items.length).toBe(1);
     expect(detail.body.order.items[0].name_snapshot).toBeUndefined(); // serialized as `name`
-    expect(detail.body.order.pickup_token.token).toMatch(/^MF-\d{4,}$/);
+    expect(detail.body.order.pickup_token.token).toMatch(/^OR-\d{4,}$/);
     expect(detail.body.order.timeline[0].to_status).toBe('awaiting_acceptance');
     expect(countRows('SELECT COUNT(*) as c FROM order_items')).toBe(1);
   });
 
   it('rejects duplicate submissions via idempotency key', async () => {
     const student = await requestAgentFor('student');
-    const menu = await student.get('/api/cafes/cafe-my-frapey/menu');
+    const menu = await student.get('/api/cafes/ordrix/menu');
     const item = menu.body.items[0];
-    const slots = await student.get('/api/cafes/cafe-my-frapey/slots');
+    const slots = await student.get('/api/cafes/ordrix/slots');
     const key = `dup-${Date.now()}`;
     const body = {
-      cafeId: 'cafe-my-frapey',
+      cafeId: 'ordrix',
       items: [{ menuItemId: item.id, quantity: 1 }],
       pickupSlotId: slots.body.slots[0].id,
       idempotencyKey: key,
@@ -60,13 +60,13 @@ describe('order lifecycle', () => {
 
   it('does not mark an order paid before verified payment confirmation', async () => {
     const student = await requestAgentFor('student');
-    const menu = await student.get('/api/cafes/cafe-my-frapey/menu');
+    const menu = await student.get('/api/cafes/ordrix/menu');
     const item = menu.body.items[0];
-    const slots = await student.get('/api/cafes/cafe-my-frapey/slots');
+    const slots = await student.get('/api/cafes/ordrix/slots');
     const res = await student
       .post('/api/orders')
       .send({
-        cafeId: 'cafe-my-frapey',
+        cafeId: 'ordrix',
         items: [{ menuItemId: item.id, quantity: 1 }],
         pickupSlotId: slots.body.slots[0].id,
         idempotencyKey: `unpaid-${Date.now()}`,
@@ -78,15 +78,15 @@ describe('order lifecycle', () => {
 
   it('prevents purchase of out-of-stock items', async () => {
     const student = await requestAgentFor('student');
-    const menu = await student.get('/api/cafes/cafe-my-frapey/menu');
+    const menu = await student.get('/api/cafes/ordrix/menu');
     const item = menu.body.items[0];
     setItemAvailability(item.id, false);
     try {
-      const slots = await student.get('/api/cafes/cafe-my-frapey/slots');
+      const slots = await student.get('/api/cafes/ordrix/slots');
       const res = await student
         .post('/api/orders')
         .send({
-          cafeId: 'cafe-my-frapey',
+          cafeId: 'ordrix',
           items: [{ menuItemId: item.id, quantity: 1 }],
           pickupSlotId: slots.body.slots[0].id,
           idempotencyKey: `oos-${Date.now()}`,
@@ -99,30 +99,30 @@ describe('order lifecycle', () => {
 
   it('refuses orders when the cafe is paused', async () => {
     const student = await requestAgentFor('student');
-    setCafeAccepting('cafe-my-frapey', false);
+    setCafeAccepting('ordrix', false);
     try {
       const res = await student
         .post('/api/orders')
         .send({
-          cafeId: 'cafe-my-frapey',
+          cafeId: 'ordrix',
           items: [],
           idempotencyKey: `pause-${Date.now()}`,
         });
       expect(res.status).toBe(409);
     } finally {
-      setCafeAccepting('cafe-my-frapey', true);
+      setCafeAccepting('ordrix', true);
     }
   });
 
   it('does not accept orders into overbooked pickup slots', async () => {
     const student = await requestAgentFor('student');
-    const menu = await student.get('/api/cafes/cafe-my-frapey/menu');
+    const menu = await student.get('/api/cafes/ordrix/menu');
     const item = menu.body.items[0];
-    const slotId = createSlot('cafe-my-frapey', 'Capacity Test', 1);
+    const slotId = createSlot('ordrix', 'Capacity Test', 1);
     const ok = await student
       .post('/api/orders')
       .send({
-        cafeId: 'cafe-my-frapey',
+        cafeId: 'ordrix',
         items: [{ menuItemId: item.id, quantity: 1 }],
         pickupSlotId: slotId,
         idempotencyKey: `cap1-${Date.now()}`,
@@ -131,7 +131,7 @@ describe('order lifecycle', () => {
     const full = await student
       .post('/api/orders')
       .send({
-        cafeId: 'cafe-my-frapey',
+        cafeId: 'ordrix',
         items: [{ menuItemId: item.id, quantity: 1 }],
         pickupSlotId: slotId,
         idempotencyKey: `cap2-${Date.now()}`,
@@ -142,16 +142,16 @@ describe('order lifecycle', () => {
 
   it('generates unique pickup tokens under concurrent order creation', async () => {
     const student = await requestAgentFor('student');
-    const menu = await student.get('/api/cafes/cafe-my-frapey/menu');
+    const menu = await student.get('/api/cafes/ordrix/menu');
     const item = menu.body.items[0];
-    const slots = await student.get('/api/cafes/cafe-my-frapey/slots');
+    const slots = await student.get('/api/cafes/ordrix/slots');
     const slotId = slots.body.slots[0].id;
     const results = await Promise.all(
       Array.from({ length: 10 }, (_, i) =>
         student
           .post('/api/orders')
           .send({
-            cafeId: 'cafe-my-frapey',
+            cafeId: 'ordrix',
             items: [{ menuItemId: item.id, quantity: 1 }],
             pickupSlotId: slotId,
             idempotencyKey: `conc-${Date.now()}-${i}`,
@@ -165,14 +165,14 @@ describe('order lifecycle', () => {
 
   it('keeps historical order snapshots when the menu item changes later', async () => {
     const student = await requestAgentFor('student');
-    const menu = await student.get('/api/cafes/cafe-my-frapey/menu');
+    const menu = await student.get('/api/cafes/ordrix/menu');
     const item = menu.body.items[0];
     const originalPrice = item.price_paise;
-    const slots = await student.get('/api/cafes/cafe-my-frapey/slots');
+    const slots = await student.get('/api/cafes/ordrix/slots');
     const res = await student
       .post('/api/orders')
       .send({
-        cafeId: 'cafe-my-frapey',
+        cafeId: 'ordrix',
         items: [{ menuItemId: item.id, quantity: 1 }],
         pickupSlotId: slots.body.slots[0].id,
         idempotencyKey: `snap-${Date.now()}`,
@@ -249,7 +249,7 @@ describe('state transitions and pickup enforcement', () => {
       });
     expect(other.status).toBe(201);
     const otherToken = other.body.order.pickup_token.token;
-    // Verifying cafe-two's token at cafe-my-frapey must fail.
+    // Verifying cafe-two's token at ordrix must fail.
     const res = await owner.post('/api/staff/pickup/verify').send({ token: otherToken });
     expect(res.status).toBe(404);
   });
@@ -258,13 +258,13 @@ describe('state transitions and pickup enforcement', () => {
     const student = await requestAgentFor('student');
     const owner = await requestAgentFor('owner');
     // Unpaid order (do not create a payment).
-    const menu = await student.get('/api/cafes/cafe-my-frapey/menu');
+    const menu = await student.get('/api/cafes/ordrix/menu');
     const item = menu.body.items[0];
-    const slots = await student.get('/api/cafes/cafe-my-frapey/slots');
+    const slots = await student.get('/api/cafes/ordrix/slots');
     const created = await student
       .post('/api/orders')
       .send({
-        cafeId: 'cafe-my-frapey',
+        cafeId: 'ordrix',
         items: [{ menuItemId: item.id, quantity: 1 }],
         pickupSlotId: slots.body.slots[0].id,
         idempotencyKey: `timeout-${Date.now()}`,

@@ -23,7 +23,7 @@ interface CartContextValue {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
-const STORAGE_KEY = 'cmf_cart_v1';
+const STORAGE_KEY = 'ordrix_cart_v1';
 
 function load(): CartLine[] {
   try {

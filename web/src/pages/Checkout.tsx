@@ -6,12 +6,21 @@ import { useAuth } from '../store/auth';
 import { formatPaise } from '../lib/format';
 import { Alert, Button, Field, Loader, SectionTitle, Textarea } from '../components/ui';
 import type { Charges, PaymentConfig, PaymentInitResult, SlotAvailability } from '../lib/types';
+import type { RazorpayOptions, RazorpayResponse } from '../lib/razorpay';
 
 function loadRazorpayScript(): Promise<void> {
   if (window.Razorpay) return Promise.resolve();
   return new Promise((resolve, reject) => {
+    const existing = document.querySelector('script[data-razorpay-checkout="true"]') as HTMLScriptElement | null;
+    if (existing) {
+      existing.addEventListener('load', () => resolve(), { once: true });
+      existing.addEventListener('error', () => reject(new Error('Could not load Razorpay checkout. Check your connection.')), { once: true });
+      return;
+    }
     const script = document.createElement('script');
     script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    script.dataset.razorpayCheckout = 'true';
     script.onload = () => resolve();
     script.onerror = () => reject(new Error('Could not load Razorpay checkout. Check your connection.'));
     document.body.appendChild(script);
@@ -31,7 +40,7 @@ export function CheckoutPage() {
   const [error, setError] = useState<string | null>(null);
   const [step, setStep] = useState<'form' | 'paying' | 'verifying'>('form');
   const [createdOrderId, setCreatedOrderId] = useState<string | null>(null);
-  const [payMode, setPayMode] = useState<'sandbox' | 'razorpay'>('sandbox');
+  const [payConfig, setPayConfig] = useState<PaymentConfig>({ mode: 'sandbox', razorpayKeyId: null });
 
   useEffect(() => {
     if (!cafeId) return;
@@ -51,9 +60,11 @@ export function CheckoutPage() {
 
   useEffect(() => {
     apiGet<PaymentConfig>('/api/payments/config')
-      .then((c) => setPayMode(c.mode))
-      .catch(() => setPayMode('sandbox'));
+      .then((c) => setPayConfig(c))
+      .catch(() => setPayConfig({ mode: 'sandbox', razorpayKeyId: null, message: 'Could not load payment config. Using sandbox.' }));
   }, []);
+
+  const payMode = payConfig.mode;
 
   if (lines.length === 0 && !createdOrderId) {
     return (
@@ -69,31 +80,47 @@ export function CheckoutPage() {
       () =>
         new Promise<void>((resolve, reject) => {
           if (!window.Razorpay || !init.razorpayOrderId || !init.razorpayKeyId) {
-            reject(new Error('Razorpay is unavailable.'));
+            reject(new Error('Razorpay is unavailable. Please check server keys.'));
             return;
           }
-          const rzp = new window.Razorpay({
+          const options: RazorpayOptions = {
             key: init.razorpayKeyId,
             amount: init.amountPaise,
             currency: init.currency ?? 'INR',
-            name: 'Cafe My Frappe',
-            description: orderNumber ? `Order ${orderNumber}` : 'Campus order',
+            name: 'ORDRIX',
+            description: orderNumber ? `Order #${orderNumber}` : 'Campus pre-order',
             order_id: init.razorpayOrderId,
-            prefill: { name: user?.name, email: user?.email },
-            notes: { orderId },
-            theme: { color: '#ED1B24' },
-            handler: (response) => {
-              apiPost(`/api/payments/${orderId}/verify`, {
-                razorpayOrderId: response.razorpay_order_id,
-                razorpayPaymentId: response.razorpay_payment_id,
-                razorpaySignature: response.razorpay_signature,
-              })
-                .then(() => resolve())
-                .catch(reject);
+            prefill: {
+              name: user?.name ?? '',
+              email: user?.email ?? '',
+            },
+            notes: { orderId, orderNumber: orderNumber ?? '' },
+            theme: { color: '#FF7A2F' },
+            retry: { enabled: true, max_count: 1 },
+            handler: async (response: RazorpayResponse) => {
+              try {
+                await apiPost(`/api/payments/${orderId}/verify`, {
+                  razorpayOrderId: response.razorpay_order_id,
+                  razorpayPaymentId: response.razorpay_payment_id,
+                  razorpaySignature: response.razorpay_signature,
+                });
+                resolve();
+              } catch (err) {
+                reject(err instanceof Error ? err : new Error('Payment verification failed.'));
+              }
             },
             modal: {
-              ondismiss: () => reject(new Error('Payment was cancelled.')),
+              ondismiss: () => reject(new Error('Payment was cancelled. You can retry from your orders if needed.')),
+              confirm_close: true,
             },
+          };
+          const rzp = new window.Razorpay(options);
+          rzp.on?.('payment.failed', (resp: unknown) => {
+            const message =
+              resp && typeof resp === 'object' && 'error' in resp
+                ? String((resp as { error?: { description?: string } }).error?.description ?? 'Payment failed.')
+                : 'Payment failed. Please try again.';
+            reject(new Error(message));
           });
           rzp.open();
         }),
@@ -148,6 +175,14 @@ export function CheckoutPage() {
         <div className="grid gap-6 lg:grid-cols-[1fr_360px]">
           <div className="grid gap-4">
             {error ? <Alert>{error}</Alert> : null}
+            {payConfig.liveRequested && !payConfig.liveReady ? (
+              <Alert kind="info">
+                Razorpay live mode is selected, but API keys are missing in server <code>.env</code>. Running in sandbox for now (no real charge). Add <code>RAZORPAY_KEY_ID</code> and <code>RAZORPAY_KEY_SECRET</code> and restart the server to enable real payments.
+              </Alert>
+            ) : null}
+            {payConfig.mode === 'razorpay' ? (
+              <Alert kind="success">Secure payment via Razorpay is enabled (UPI, cards, wallets, netbanking).</Alert>
+            ) : null}
 
             <section className="card">
               <h3 className="mb-3 font-display text-lg font-bold text-coffee-800">Pickup window</h3>
@@ -216,7 +251,10 @@ export function CheckoutPage() {
               Place order &amp; pay
             </Button>
             <p className="mt-2 text-center text-xs text-stone-400">
-              {payMode === 'razorpay' ? 'Secure payment via Razorpay · UPI, cards & wallets' : 'Sandbox payment · no real charge'}
+              {payConfig.mode === 'razorpay'
+                ? 'Secure payment via Razorpay · UPI, cards & wallets'
+                : 'Sandbox payment · no real charge'}
+              {payConfig.message ? <span className="mt-1 block text-[11px] text-stone-400">{payConfig.message}</span> : null}
             </p>
           </aside>
         </div>

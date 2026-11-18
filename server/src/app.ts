@@ -92,7 +92,7 @@ export function createApp(): Express {
 
   app.get('/api/info', (_req, res) => {
     res.json({
-      name: 'Cafe My Frappe API',
+      name: 'ORDRIX API',
       version: '1.0.0',
       env: config.nodeEnv,
       paymentMode: config.payments.mode,

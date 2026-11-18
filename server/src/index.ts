@@ -3,6 +3,7 @@ import { config } from './config.js';
 import { createApp } from './app.js';
 import { initRealtime } from './realtime.js';
 import { runMigrations } from './db/migrate.js';
+import { rebrandLegacyData } from './db/rebrand.js';
 import { seed } from './db/seed.js';
 import { all, get, getDb } from './db/index.js';
 import { flagTimedOutOrders, updateOrderStatus } from './modules/orders/service.js';
@@ -10,6 +11,13 @@ import { flagTimedOutOrders, updateOrderStatus } from './modules/orders/service.
 function bootstrapDatabase(): void {
   try {
     runMigrations();
+    const rebrand = rebrandLegacyData();
+    if (rebrand.usersUpdated || rebrand.cafesUpdated || rebrand.tokensUpdated) {
+      console.log(
+        `[startup] Migrated legacy data: ${rebrand.usersUpdated} user(s), ${rebrand.cafesUpdated} cafe record(s), ${rebrand.tokensUpdated} pickup token(s).`,
+      );
+    }
+    for (const warning of rebrand.warnings) console.warn(`[startup] ${warning}`);
     const userCount = get<{ c: number }>('SELECT COUNT(*) as c FROM users');
     if (Number(userCount?.c ?? 0) === 0) {
       console.log('[startup] Empty database detected - running seed (development sample data).');
@@ -91,7 +99,7 @@ function main(): void {
   startDemoScheduler();
 
   server.listen(config.port, () => {
-    console.log(`\n  Cafe My Frapey API`);
+    console.log(`\n  ORDRIX API`);
     console.log(`  Environment : ${config.nodeEnv}`);
     console.log(`  Listening   : http://localhost:${config.port}`);
     console.log(`  Payment mode: ${config.payments.mode}`);

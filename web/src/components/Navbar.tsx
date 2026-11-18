@@ -121,12 +121,12 @@ export function Navbar() {
           <span className="relative">
             <span className="absolute inset-0 rounded-xl bg-accent-400/45 blur-md" />
             <span className="relative grid h-11 w-11 place-items-center overflow-hidden rounded-xl bg-white p-1 shadow-[0_8px_18px_-8px_rgba(0,0,0,.7)] ring-1 ring-white/40">
-              <img src="/brand/logo.png" alt="Cafe My Frappe" className="h-full w-full object-contain" />
+              <img src="/brand/ordrix-mark.svg" alt="ORDRIX" className="h-full w-full object-contain" />
             </span>
           </span>
           <span className="leading-none">
             <span className="block font-display text-lg font-extrabold text-white">
-              Cafe <span className="text-gradient">My Frappe</span>
+              <span className="text-gradient">ORDRIX</span>
             </span>
             <span className="mt-1 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-cream-100/50 sm:block">
               MDU · Pre-Order
@@ -279,18 +279,18 @@ export function Shell({ children }: { children: React.ReactNode }) {
                 <span className="relative">
                   <span className="absolute inset-0 rounded-xl bg-accent-400/30 blur-md" />
                   <span className="relative grid h-11 w-11 place-items-center overflow-hidden rounded-xl bg-white p-1 shadow-sm ring-1 ring-coffee-100">
-                    <img src="/brand/logo.png" alt="Cafe My Frappe" className="h-full w-full object-contain" />
+                    <img src="/brand/ordrix-mark.svg" alt="ORDRIX" className="h-full w-full object-contain" />
                   </span>
                 </span>
                 <div>
                   <p className="font-display text-xl font-black text-coffee-900">
-                    Cafe <span className="text-gradient">My Frappe</span>
+                    <span className="text-gradient">ORDRIX</span>
                   </p>
                   <p className="text-xs text-stone-500">Freshly Brewed • Made With Love</p>
                 </div>
               </div>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-stone-600">
-                Campus pre-ordering made easy. Skip the long queues at MDU, Rohtak — order your favourite frappes, coffees & snacks right from your phone and collect between classes.
+                Campus pre-ordering made easy. Skip the long queues at MDU, Rohtak — order your favourite coffee, meals & snacks right from your phone and collect between classes.
               </p>
               <p className="mt-4 text-sm font-semibold text-coffee-700">Order in class · Collect between classes</p>
             </div>
@@ -332,7 +332,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                   <span className="text-accent-500">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                   </span>
-                  <span>cafemyfrappe@gmail.com</span>
+                  <span>hello@ordrix.test</span>
                 </li>
               </ul>
             </div>
@@ -341,7 +341,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-coffee-100 pt-6 text-xs text-stone-400 sm:flex-row">
             <p className="flex items-center gap-1.5">
               <IconCup size={13} className="text-accent-500" />
-              © {new Date().getFullYear()} <span className="font-semibold text-coffee-600">Cafe My Frappe</span>. All rights reserved.
+              © {new Date().getFullYear()} <span className="font-semibold text-coffee-600">ORDRIX</span>. All rights reserved.
             </p>
             <p className="text-center sm:text-right">
               Designed &amp; Developed by <span className="font-semibold text-coffee-600">Anirudh</span>, <span className="font-semibold text-coffee-600">Tushar</span> &amp; <span className="font-semibold text-coffee-600">Sagar</span> | Made with <span className="text-accent-500">♥</span> for MDU Students

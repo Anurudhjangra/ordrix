@@ -6,7 +6,9 @@ export const POLL_FALLBACK_MS = 8000;
 
 const manager = new Manager(SOCKET_URL, {
   autoConnect: false,
-  withCredentials: false,
+  // The auth cookie is httpOnly. The browser must send it with the handshake;
+  // JavaScript cannot read it from document.cookie.
+  withCredentials: true,
   path: '/socket.io',
   transports: ['websocket', 'polling'],
 });
@@ -18,7 +20,7 @@ export function connectSocket(user: AuthUser): Socket {
   if (socket && currentUser?.id === user.id) return socket;
   disconnectSocket();
   currentUser = user;
-  socket = manager.socket('/', { auth: { token: document.cookie } });
+  socket = manager.socket('/');
   socket.connect();
   return socket;
 }

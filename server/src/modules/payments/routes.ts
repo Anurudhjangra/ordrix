@@ -22,10 +22,21 @@ export const paymentsRouter = Router();
 
 /** Public config so the client knows whether it is in sandbox or live mode. */
 paymentsRouter.get('/config', (_req, res) => {
+  const mode = paymentMode();
+  const liveRequested = config.payments.mode === 'razorpay';
+  const liveReady = liveRequested && mode === 'razorpay';
   res.json({
-    mode: paymentMode(),
+    mode,
+    liveRequested,
+    liveReady,
     // Never expose the key secret. Key id is safe to share for checkout JS.
-    razorpayKeyId: paymentMode() === 'razorpay' ? config.payments.razorpayKeyId : null,
+    razorpayKeyId: mode === 'razorpay' ? config.payments.razorpayKeyId : null,
+    message:
+      liveRequested && !liveReady
+        ? 'Razorpay mode requested but keys are missing. Running in sandbox.'
+        : mode === 'razorpay'
+          ? 'Razorpay live checkout enabled.'
+          : 'Sandbox mode: no real money is charged.',
   });
 });
 

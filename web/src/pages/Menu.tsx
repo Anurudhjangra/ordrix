@@ -123,7 +123,7 @@ export function MenuPage() {
 
       {/* Sticky category tabs */}
       {grouped.length > 1 ? (
-        <div className="sticky top-[104px] z-30 -mx-4 mb-6 bg-[linear-gradient(180deg,#fbf6ee_60%,rgba(251,246,238,0))] px-4 pb-3 backdrop-blur">
+        <div className="sticky top-[104px] z-30 -mx-4 mb-6 bg-[linear-gradient(180deg,#f8fafc_60%,rgba(248,250,252,0))] px-4 pb-3 backdrop-blur">
           <div className="flex gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {grouped.map(({ cat }) => (
               <button

@@ -17,7 +17,7 @@ export interface AllocatedToken {
 /**
  * Allocate a unique pickup token for an order. Must run inside the same
  * transaction that creates the order so allocation is atomic and serialised.
- * Token format: MF-#### (globally increasing so every token is unique;
+ * Token format: OR-#### (globally increasing so every token is unique;
  * verifying a foreign cafe's token therefore fails cleanly).
  */
 export function allocatePickupToken(cafeId: string, orderId: string): AllocatedToken {
@@ -25,10 +25,10 @@ export function allocatePickupToken(cafeId: string, orderId: string): AllocatedT
   // The counter may start below sequences allocated by earlier schemes (e.g.
   // per-cafe counters), so skip past any token sequence already in the table.
   let sequence = nextCounter('pickup_token');
-  let token = `MF-${String(sequence).padStart(4, '0')}`;
+  let token = `OR-${String(sequence).padStart(4, '0')}`;
   while (get<{ id: string }>('SELECT id FROM pickup_tokens WHERE token = ?', [token])) {
     sequence = nextCounter('pickup_token');
-    token = `MF-${String(sequence).padStart(4, '0')}`;
+    token = `OR-${String(sequence).padStart(4, '0')}`;
   }
   run(
     `INSERT INTO pickup_tokens (id, cafe_id, order_id, token, token_date, sequence)

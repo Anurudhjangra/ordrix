@@ -1,0 +1,331 @@
+===== SLIDE 1 =====
+T E A M O R D R I X  ·  M D U R O H T A K
+Campus Online
+Ordering System
+Order in class. Collect between classes.
+A pickup-first food ordering platform for college cafeterias — live menu, online payment, crowd-
+controlled pickup windows and one pickup code.
+5-minute ordering
+One pickup code
+Zero queue
+Presented by  Sagar  ·  Anirudh  ·  Tushar
+ORDRIX  ·  Maharshi Dayanand University, Rohtak
+STUDENT APP · MOBILE FIRST
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+SAGAR   |   01 / 17
+===== SLIDE 2 =====
+0 1  ·  T H E P R O B L E M
+A 10-minute break.
+A 15-minute queue.
+10 min
+class break — canteen tak pahunchne aur wapas aane ka time
+60–70
+students ek hi break mein canteen ki taraf chal padte hain
+1
+counter, ek hi samay par sabko serve karne ke liye
+Bell bajti hai —
+60–70 students ek saath canteen pahunchte hain.
+Line lambi ho jaati hai —
+break khatam, order abhi bhi pending.
+Student bhookha class mein —
+ya order kiye bina hi wapas chala jaata hai.
+Result: break ka maza nahi, class mein bhookh — aur canteen ka business bhi loss.
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+SAGAR   |   02 / 17
+===== SLIDE 3 =====
+0 1  ·  T H E P R O B L E M
+Ek problem. Do nuksaan.
+T H E S T U D E N T
+Time aur meal — dono jaate hain
+Break poora queue mein nikal jaata hai
+Class mein bhookha baithna padta hai
+Ya order hi nahi karta — khaana chhod deta hai
+T H E C A F É
+Sales aur staff — dono pressure mein
+Counter pe line = slow service
+Dekh kar chale jaane wale = lost sales
+Peak time pe staff overwhelmed
+Student ka time waste, café ka revenue loss — aur dono ke paas koi solution nahi.
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+SAGAR   |   03 / 17
+===== SLIDE 4 =====
+0 1  ·  T H E P R O B L E M
+Zomato / Swiggy yahan kaam nahi karta.
+Delivery-first apps are built for homes — not for a 10-minute campus break.
+01
+Delivery-first,
+not pickup-first
+Unka model ghar tak pahunchane ka hai. Campus 
+counter se 15 second mein collect karne ke liye 
+bana hi nahi.
+02
+No class
+timetable
+Unhe pata hi nahi aapka break kab hai. Har order 
+unke liye 'ASAP' hota hai — exactly the wrong 
+promise.
+03
+Delivery fee kills
+a ₹200 order
+₹30 fee + waiting time par student chala jaata hai. 
+Campus order ka ticket size chhota hota hai.
+Campus pickup ek alag category hai — iske liye alag product chahiye.
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+SAGAR   |   04 / 17
+===== SLIDE 5 =====
+0 2  ·  T H E S O L U T I O N
+Pre-order. Pay. Pick up.
+One platform — student ke liye speed, café ke liye control.
+1
+Pickup windows
+Break-wise slots with fixed capacity. Café decide 
+karta hai ek slot mein kitne orders jayenge.
+2
+One pickup code
+OR-0427. Counter pe code bolo, 15 second mein 
+collect. Naam chillana khatam.
+3
+Café control room
+Live queue, menu, slots, refunds aur audit — sab 
+ek dashboard mein.
+Student ko queue se aazadi. Café ko peak-hour ka control.
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+SAGAR   |   05 / 17
+===== SLIDE 6 =====
+0 3  ·  H O W I T W O R K S
+Order in class. Collect between classes.
+1
+Browse menu
+2
+Add to cart
+3
+Pickup window
+4
+Pay online
+5
+Show code & collect
+Live menu — 74 items, options aur prices
+Checkout — pickup window + payment
+Track order + pickup code
+5 steps. About 5 minutes. Zero queue.
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+ANIRUDH   |   06 / 17
+===== SLIDE 7 =====
+0 3  ·  H O W I T W O R K S
+A live menu — not a PDF.
+Menu — categories, search, veg filter and live availability
+74 items · 16 categories
+Coffee, pizza, burgers, maggi, wraps — sab ek jagah.
+Customise your order
+Size, milk, extra cheese, toppings — price turant update.
+Veg / non-veg + prep time
+Har item pe clear label aur estimated preparation time.
+A cart that remembers
+Class ke beech items add karo — cart save rehta hai.
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+ANIRUDH   |   07 / 17
+===== SLIDE 8 =====
+0 3  ·  H O W I T W O R K S
+Pay online. Skip the counter.
+Pickup window chuno
+Lunch ya short break — jo slot free hai wahi dikhta hai.
+Order notes
+'Less spicy', 'extra ketchup' — seedha café tak pahunchta hai.
+Live price breakup
+Subtotal + tax + service fee — payment se pehle sab clear.
+Razorpay checkout
+UPI, card, wallet. Sandbox fallback bhi built-in hai.
+Server-verified total
+Client se aaya price trust nahi karte — server dobara calculate karta hai.
+Checkout — pickup window, notes and live price breakup
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+ANIRUDH   |   08 / 17
+===== SLIDE 9 =====
+0 3  ·  H O W I T W O R K S
+One code. Zero confusion.
+P I C K U P C O D E
+OR-0427
+Ready to collect
+verified at the counter in seconds
+L I V E O R D E R T I M E L I N E
+Placed
+Accepted
+Preparing
+Ready
+Collected
+Cancel before prep · paid order = auto refund
+Order detail — live status, pending time and pickup code
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+ANIRUDH   |   09 / 17
+===== SLIDE 10 =====
+0 4  ·  T H E D I F F E R E N T I A T O R
+Slots, not “ASAP”.
+The kitchen gets a schedule. The student gets a time.
+Break-wise windows
+10:45–11:15, 13:00–14:00, 15:45–16:15 — college timetable ke hisaab se.
+Fixed capacity
+Har slot mein 25–40 orders. Kitchen ek saath overwhelm nahi hota.
+Café ke control mein
+Slot full ya band? Student ko sirf valid options dikhte hain.
+T O D A Y ' S W I N D O W S
+10:45 – 11:15
+Break 1
+30 orders
+13:00 – 14:00
+Lunch
+40 orders
+15:45 – 16:15
+Break 2
+30 orders
+17:30 – 18:30
+Evening
+25 orders
+Checkout — only open windows with remaining capacity
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+ANIRUDH   |   10 / 17
+===== SLIDE 11 =====
+0 5  ·  C A F É S I D E
+The café's control room.
+Staff dashboard — live order queue with one-tap status flow
+Live queue
+Socket.IO se naye orders bina refresh aate hain.
+One-tap status
+Accept → Preparing → Ready. Staff ko sirf next step dabana hai.
+Code verify
+OR-#### daalo, order collected mark ho jaata hai.
+Pause anytime
+Kitchen full? Orders pause — student ko turant dikhta hai.
+Refund-safe
+Paid order cancel = auto refund + ledger entry.
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+ANIRUDH   |   11 / 17
+===== SLIDE 12 =====
+0 5  ·  C A F É S I D E
+Menu, slots, refunds — all in one place.
+Categories, photos, options, availability — no developer needed.
+Menu manager
+Create slots, set capacity, hide when full.
+Pickup windows
+Orders, revenue, users, refunds and audit log.
+Admin console
+Owner aur admin ke paas poora control — menu se refund tak, bina kisi developer ke.
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+ANIRUDH   |   12 / 17
+===== SLIDE 13 =====
+0 6  ·  U N D E R T H E H O O D
+Built like a real product.
+Auth, payments, refunds and audit — not just screens.
+Student app · (React)
+Café dashboard · (React)
+Admin console · (React)
+REST API  ·  Node 22 + Express + TypeScript  ·  Zod validation  ·  JWT httpOnly cookie
+SQLite · multi-tenant data
+Socket.IO · realtime + polling fallback
+Razorpay — order → checkout → signature verify  |  auto-refund on cancel
+Same codebase, three role-based interfaces. Students, staff, owner and admin — four roles, clear permissions.
+30
+integration tests
+4
+roles
+2
+outlets configured
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+ANIRUDH   |   13 / 17
+===== SLIDE 14 =====
+0 7  ·  L I V E D E M O
+Let's place an order.
+localhost:5173  ·  student se café tak, end to end
+S TUDE NT HO ME
+MO BILE ME NU
+C AF É DAS HBO AR D
+Menu
+›
+Cart
+›
+Pay
+›
+Pickup code
+›
+Café accepts
+›
+Collected
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+ANIRUDH   |   14 / 17
+===== SLIDE 15 =====
+0 8  ·  I M P A C T
+Small change. Big difference.
+5 min
+to place an order — from the classroom
+0 min
+standing in the queue
+125
+orders/day capacity per outlet
+100%
+orders tracked live
+S T U D E N T S
+Break ka time khaane ke liye — line ke liye nahi.
+C A F E T E RI A
+Peak-hour load pehle se pata — staff, stock aur kitchen 
+plan.
+C A M P U S
+Crowded counters kam, better experience, digital-first 
+campus.
+B E F O R E
+Break = queue + waiting + cold food
+A F T E R
+Break = order, collect, relax
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+TUSHAR   |   15 / 17
+===== SLIDE 16 =====
+0 9  ·  W H A T ' S N E X T
+From one counter to every campus.
+1 M O N T H
+3 more cafés
+MDU campus ke andar pilot expand karo.
+3 M O N T H S
+Multi-campus + analytics
+Peak-hour data, best-sellers, slot demand.
+6 M O N T H S
+Prediction + services
+Order ETA, library, print, stationery.
+E X P A N S I O N M A P
+Multi-outlet platform
+Smart analytics
+Order-time prediction
+Library / print / stationery
+Vision: campus ki har service — ek hi app mein, bina line ke.
+Same playbook: start with food pickup, learn the peak hours, then plug in more campus services on top of the same identity and payments layer.
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+TUSHAR   |   16 / 17
+===== SLIDE 17 =====
+T H A N K Y O U F O R Y O U R T I M E
+Thank you.
+Questions? We would love your feedback.
+Sagar
+Problem · Solution
+Anirudh
+Product · Live demo
+Tushar
+Impact · Roadmap
+Demo:  localhost:5173
+ORDRIX · Maharshi Dayanand University, Rohtak
+Break ka matlab coffee hona chahiye — line nahi.
+CAMPUS ONLINE ORDERING SYSTEM
+ORDRIX · ORDRIX · MDU ROHTAK
+TUSHAR   |   17 / 17

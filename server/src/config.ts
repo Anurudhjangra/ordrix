@@ -39,7 +39,7 @@ export const config = {
   jwt: {
     secret: process.env.JWT_SECRET ?? 'dev-only-insecure-secret-change-me',
     expiresIn: process.env.JWT_EXPIRES_IN ?? '7d',
-    cookieName: 'cmf_token',
+    cookieName: 'ordrix_token',
   },
 
   cookieSecure: bool(process.env.COOKIE_SECURE, nodeEnv === 'production'),
@@ -54,9 +54,9 @@ export const config = {
   orderAcceptTimeoutMinutes: Number(process.env.ORDER_ACCEPT_TIMEOUT_MINUTES ?? 10),
 
   seed: {
-    ownerEmail: process.env.SEED_OWNER_EMAIL ?? 'owner@cafemyfrapey.test',
+    ownerEmail: process.env.SEED_OWNER_EMAIL ?? 'owner@ordrix.test',
     ownerPassword: process.env.SEED_OWNER_PASSWORD ?? 'Owner@12345',
-    adminEmail: process.env.SEED_ADMIN_EMAIL ?? 'admin@cafemyfrapey.test',
+    adminEmail: process.env.SEED_ADMIN_EMAIL ?? 'admin@ordrix.test',
     adminPassword: process.env.SEED_ADMIN_PASSWORD ?? 'Admin@12345',
     studentEmail: process.env.SEED_STUDENT_EMAIL ?? 'student@mdu.test',
     studentPassword: process.env.SEED_STUDENT_PASSWORD ?? 'Student@12345',
@@ -70,6 +70,14 @@ if (config.isProd && config.jwt.secret === 'dev-only-insecure-secret-change-me')
 
 if (config.isProd && !config.cookieSecure) {
   console.warn('[config] COOKIE_SECURE is false in production. Set COOKIE_SECURE=true behind HTTPS.');
+}
+
+if (config.payments.mode === 'razorpay' && !(config.payments.razorpayKeyId && config.payments.razorpayKeySecret)) {
+  console.warn(
+    '[config] PAYMENT_MODE=razorpay but RAZORPAY_KEY_ID/RAZORPAY_KEY_SECRET are missing. Falling back to sandbox (no real money charged).'
+  );
+} else if (config.payments.mode === 'razorpay') {
+  console.log('[config] Razorpay payment mode enabled (keys present).');
 }
 
 /**

@@ -1,5 +1,5 @@
 -- ==========================================================================
--- Cafe My Frapey - Initial schema (SQLite)
+-- ORDRIX - Initial schema (SQLite)
 -- Money is stored as INTEGER minor units (paise). 1 INR = 100 paise.
 -- Timestamps are stored as ISO-8601 UTC text via datetime('now').
 -- ==========================================================================

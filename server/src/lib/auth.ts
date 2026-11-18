@@ -65,10 +65,27 @@ export function clearAuthCookie(res: Response): void {
   res.clearCookie(config.jwt.cookieName, { ...cookieOptions(), maxAge: undefined });
 }
 
+function tokenFromCookieHeader(header: string | undefined, name: string): string | null {
+  if (!header) return null;
+  for (const part of header.split(';')) {
+    const separator = part.indexOf('=');
+    if (separator < 0) continue;
+    if (part.slice(0, separator).trim() !== name) continue;
+    const raw = part.slice(separator + 1).trim();
+    try {
+      return decodeURIComponent(raw);
+    } catch {
+      return raw;
+    }
+  }
+  return null;
+}
+
 export function tokenFromRequest(req: Request): string | null {
-  const cookieToken = (req as Request & { cookies?: Record<string, string> }).cookies?.[
-    config.jwt.cookieName
-  ];
+  const cookieToken =
+    (req as Request & { cookies?: Record<string, string> }).cookies?.[config.jwt.cookieName] ??
+    // Socket.IO handshakes do not pass through cookie-parser, so read the raw header too.
+    tokenFromCookieHeader(req.headers.cookie, config.jwt.cookieName);
   if (cookieToken) return cookieToken;
   const header = req.headers.authorization;
   if (header?.startsWith('Bearer ')) return header.slice(7);

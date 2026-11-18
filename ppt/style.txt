@@ -1,0 +1,89 @@
+=== slide 1
+  Rectangle 1: solid FF7A2F | 
+  TextBox 2:  | Segoe UI 11.0b=True color=FFC700
+  TextBox 3:  | Georgia 104.0b=True color=FAF6EF
+  Rectangle 4: solid FFC700 | 
+  TextBox 5:  | Georgia 24.0b=True color=FAF6EF
+  TextBox 6:  | Segoe UI 12.5b=False color=9C8276
+  Rounded Rectangle 7: solid 2E1409 | Segoe UI 9.0b=True color=FFC700
+  Rounded Rectangle 8: solid 2E1409 | Segoe UI 9.0b=True color=FFC700
+  Rounded Rectangle 9: solid 2E1409 | Segoe UI 9.0b=True color=FFC700
+  TextBox 10:  | Segoe UI 11.5b=True color=FAF6EF
+  TextBox 11:  | Segoe UI 9.5b=False color=9C8276
+  TextBox 12:  | Segoe UI 9.5b=False color=9C8276
+  Rounded Rectangle 13: solid 080301 | 
+  Rounded Rectangle 14: solid 351A0E | 
+  Picture 15: fill? 'Picture' object has no attribute 'fill' | 
+  TextBox 16:  | Segoe UI 14.0b=False color=2A130C
+=== slide 2
+  TextBox 1:  | Segoe UI 10.0b=True color=FFC700
+  TextBox 2:  | Georgia 36.0b=True color=FAF6EF
+  TextBox 3:  | Georgia 30.0b=True color=FFC700
+  TextBox 4:  | Segoe UI 11.5b=False color=9C8276
+  TextBox 5:  | Georgia 30.0b=True color=FFC700
+  TextBox 6:  | Segoe UI 11.5b=False color=9C8276
+  TextBox 7:  | Georgia 30.0b=True color=FFC700
+  TextBox 8:  | Segoe UI 11.5b=False color=9C8276
+  Rectangle 9: solid 4A2618 | 
+  TextBox 10:  | Segoe UI 13.0b=True color=FAF6EF
+  TextBox 11:  | Segoe UI 11.0b=False color=9C8276
+  TextBox 12:  | Segoe UI 13.0b=True color=FAF6EF
+  TextBox 13:  | Segoe UI 11.0b=False color=9C8276
+  TextBox 14:  | Segoe UI 13.0b=True color=FAF6EF
+  TextBox 15:  | Segoe UI 11.0b=False color=9C8276
+  TextBox 16:  | Segoe UI 8.0b=True color=4A2618
+  TextBox 17:  | Segoe UI 8.0b=False color=4A2618
+  TextBox 18:  | Segoe UI 8.0b=True color=4A2618
+=== slide 5
+  TextBox 1:  | Segoe UI 10.0b=True color=FFC700
+  TextBox 2:  | Georgia 32.0b=True color=FAF6EF
+  Rounded Rectangle 3: solid 2E1409 | 
+  Rounded Rectangle 4: solid FFC700 | Segoe UI 13.0b=True color=1C0D08
+  TextBox 5:  | Segoe UI 15.0b=True color=FAF6EF
+  TextBox 6:  | Segoe UI 10.5b=False color=9C8276
+  Rounded Rectangle 7: solid 2E1409 | 
+  Rounded Rectangle 8: solid FFC700 | Segoe UI 13.0b=True color=1C0D08
+  TextBox 9:  | Segoe UI 15.0b=True color=FAF6EF
+  TextBox 10:  | Segoe UI 10.5b=False color=9C8276
+  Rounded Rectangle 11: solid 2E1409 | 
+  Rounded Rectangle 12: solid FFC700 | Segoe UI 13.0b=True color=1C0D08
+  TextBox 13:  | Segoe UI 15.0b=True color=FAF6EF
+  TextBox 14:  | Segoe UI 10.5b=False color=9C8276
+  TextBox 15:  | Segoe UI 12.5b=True color=FFC700
+  TextBox 16:  | Segoe UI 8.0b=True color=4A2618
+  TextBox 17:  | Segoe UI 8.0b=False color=4A2618
+  TextBox 18:  | Segoe UI 8.0b=True color=4A2618
+=== slide 6
+  TextBox 1:  | Segoe UI 10.0b=True color=FF7A2F
+  TextBox 2:  | Georgia 36.0b=True color=2A130C
+  Rounded Rectangle 3: solid F1E9DC | Segoe UI 8.5b=True color=2A130C
+  Right Arrow 4: solid FF7A2F | 
+  Rounded Rectangle 5: solid F1E9DC | Segoe UI 8.5b=True color=2A130C
+  Right Arrow 6: solid FF7A2F | 
+  Rounded Rectangle 7: solid F1E9DC | Segoe UI 8.5b=True color=2A130C
+  Right Arrow 8: solid FF7A2F | 
+  Rounded Rectangle 9: solid F1E9DC | Segoe UI 8.5b=True color=2A130C
+  Right Arrow 10: solid FF7A2F | 
+  Rounded Rectangle 11: solid F1E9DC | Segoe UI 8.5b=True color=2A130C
+  Rounded Rectangle 12: solid FF7A2F | 
+  TextBox 13:  | Segoe UI 12.0b=True color=2A130C
+  TextBox 14:  | Segoe UI 9.5b=False color=7A6157
+  Rounded Rectangle 15: solid FF7A2F | 
+  TextBox 16:  | Segoe UI 12.0b=True color=2A130C
+  TextBox 17:  | Segoe UI 9.5b=False color=7A6157
+  Rounded Rectangle 18: solid FF7A2F | 
+  TextBox 19:  | Segoe UI 12.0b=True color=2A130C
+  TextBox 20:  | Segoe UI 9.5b=False color=7A6157
+  Rounded Rectangle 21: solid DDCFBE | 
+  Rounded Rectangle 22: solid FFFFFF | 
+  Picture 23: fill? 'Picture' object has no attribute 'fill' | 
+  Rounded Rectangle 24: solid DDCFBE | 
+  Rounded Rectangle 25: solid FFFFFF | 
+  Picture 26: fill? 'Picture' object has no attribute 'fill' | 
+  Rounded Rectangle 27: solid DDCFBE | 
+  Rounded Rectangle 28: solid FFFFFF | 
+  Picture 29: fill? 'Picture' object has no attribute 'fill' | 
+  TextBox 30:  | Segoe UI 8.5b=False color=7A6157
+  TextBox 31:  | Segoe UI 8.0b=True color=B6A397
+  TextBox 32:  | Segoe UI 8.0b=False color=B6A397
+  TextBox 33:  | Segoe UI 8.0b=True color=B6A397

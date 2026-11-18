@@ -1,6 +1,6 @@
-# Cafe My Frapey
+# ORDRIX
 
-Smart campus food pre-ordering and cafe management platform for **Cafe My Frapey**, near
+Smart campus food pre-ordering and cafe management platform for **ORDRIX**, near
 Maharshi Dayanand University, Rohtak.
 
 Students order in class, pay online, choose a pickup window, and collect between classes using a
@@ -15,12 +15,12 @@ menu, and verify pickups by code.
 | -------- | ---- |
 | API      | Node.js ≥ 22.5, Express 4, TypeScript |
 | Database | SQLite via built-in `node:sqlite` (no ORM) |
-| Auth     | JWT in httpOnly cookie (`cmf_token`), roles: `student / staff / owner / admin` |
+| Auth     | JWT in httpOnly cookie (`ordrix_token`), roles: `student / staff / owner / admin` |
 | Validation | zod, central error handler |
 | Realtime | Socket.IO (`user:`, `cafe:`, `order:` rooms) + 8s polling fallback |
 | Web      | React 18, Vite 6, Tailwind CSS 3, React Router 6, Socket.IO client |
 | Tests    | Vitest + supertest (server), 30 integration tests |
-| Payments | Razorpay adapter (currently **sandbox only**, no credentials configured) |
+| Payments | Razorpay (Orders API + Checkout + signature verify). Configurable via `PAYMENT_MODE`/keys; falls back to **sandbox** if keys missing. |
 
 > Ports: API on `4000`, web dev server on `5173` (proxies `/api`, `/uploads`, `/socket.io`).
 
@@ -67,8 +67,8 @@ npm run build     # production build for server + web
 | Role    | Email                  | Password      |
 | ------- | ---------------------- | ------------- |
 | Student | `student@mdu.test`     | `Student@12345` |
-| Owner   | `owner@cafemyfrapey.test` | `Owner@12345` |
-| Admin   | `admin@cafemyfrapey.test` | `Admin@12345` |
+| Owner   | `owner@ordrix.test` | `Owner@12345` |
+| Admin   | `admin@ordrix.test` | `Admin@12345` |
 
 The seed creates one cafe (open Mon–Sat 09:00–20:00 in prod seed; the test harness and the local
 dev DB used for demos run 24/7), a menu with categories/items/options, pickup windows, and staff
@@ -120,7 +120,7 @@ adapter in `server/src/lib/payments.ts` to do an actual order capture / verifica
 **Staff / Owners**
 - Live order queue (realtime via `cafe:` room + polling fallback)
 - Accept / reject, preparing, ready, cancel actions
-- Pickup token verification: enter `MF-####` to confirm and mark collected
+- Pickup token verification: enter `OR-####` to confirm and mark collected
 - Menu manager (categories, items, availability, options)
 - Pickup window manager (create / hide / capacity)
 - Cafe settings (tax %, service fee, auto-accept timeout, pause/resume orders)

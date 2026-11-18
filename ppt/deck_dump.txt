@@ -1,0 +1,325 @@
+size 13.33 x 7.50
+--- slide 1
+  AUTO_SHAPE (1) (0.00,0.00) 0.18x7.50 :: 
+  TEXT_BOX (17) (0.75,1.55) 9.00x0.30 :: CAMPUS PRE-ORDERING PLATFORM
+  TEXT_BOX (17) (0.67,1.95) 9.00x1.90 :: ORDRIX
+  AUTO_SHAPE (1) (0.75,4.02) 2.20x0.06 :: 
+  TEXT_BOX (17) (0.75,4.32) 8.60x0.55 :: Order in class. Collect between classes.
+  TEXT_BOX (17) (0.75,5.08) 7.40x0.90 :: Students order from their phone, pay online, pick a break-time window, and collect || with a single pickup code — no queue, no waiting.
+  AUTO_SHAPE (1) (0.75,6.06) 2.24x0.34 :: Pickup windows
+  AUTO_SHAPE (1) (3.17,6.06) 2.24x0.34 :: One pickup code
+  AUTO_SHAPE (1) (5.59,6.06) 2.24x0.34 :: Café operations
+  TEXT_BOX (17) (8.98,1.62) 3.60x0.30 :: Anirudh  ·  Sagar  ·  Tushar
+  TEXT_BOX (17) (8.98,1.96) 3.60x0.30 :: Pilot live at ORDRIX
+  TEXT_BOX (17) (8.98,2.20) 3.60x0.30 :: UIET & IMSAR · MDU Rohtak
+  AUTO_SHAPE (1) (9.38,3.01) 2.03x4.20 :: 
+  AUTO_SHAPE (1) (9.26,2.88) 2.03x4.20 :: 
+  PICTURE (13) (9.33,2.95) 1.89x4.06 :: 
+  TEXT_BOX (17) (0.00,0.00) 0.00x0.00 :: 
+--- slide 2
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: THE PROBLEM
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: 10 minute break. || 15 minute line.
+  TEXT_BOX (17) (0.75,2.85) 1.90x0.60 :: 10 min
+  TEXT_BOX (17) (2.75,2.99) 3.60x0.40 :: class break
+  TEXT_BOX (17) (0.75,3.87) 1.90x0.60 :: 60+
+  TEXT_BOX (17) (2.75,4.01) 3.60x0.40 :: students at the same time
+  TEXT_BOX (17) (0.75,4.89) 1.90x0.60 :: 1
+  TEXT_BOX (17) (2.75,5.03) 3.60x0.40 :: counter to serve everyone
+  AUTO_SHAPE (1) (6.90,2.70) 0.03x3.50 :: 
+  TEXT_BOX (17) (7.30,2.82) 5.20x0.30 :: Bell bajti hai —
+  TEXT_BOX (17) (7.30,3.14) 5.20x0.60 :: 60–70 students ek saath canteen pahunchte hain.
+  TEXT_BOX (17) (7.30,3.97) 5.20x0.30 :: Line lambi ho jaati hai —
+  TEXT_BOX (17) (7.30,4.29) 5.20x0.60 :: break khatam, order abhi bhi pending.
+  TEXT_BOX (17) (7.30,5.12) 5.20x0.30 :: Student bhookha class me —
+  TEXT_BOX (17) (7.30,5.44) 5.20x0.60 :: ya order kiye bina hi wapas chala jaata hai.
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 02
+--- slide 3
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: WHO IT HURTS
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: Ek problem. Do nuksaan.
+  AUTO_SHAPE (1) (0.75,2.35) 5.77x3.50 :: 
+  AUTO_SHAPE (1) (0.75,2.35) 0.07x3.50 :: 
+  TEXT_BOX (17) (1.17,2.68) 4.97x0.30 :: THE STUDENT
+  AUTO_SHAPE (1) (1.17,3.35) 0.11x0.11 :: 
+  TEXT_BOX (17) (1.47,3.25) 4.67x0.65 :: Break poora queue me nikal jaata hai
+  AUTO_SHAPE (1) (1.17,4.13) 0.11x0.11 :: 
+  TEXT_BOX (17) (1.47,4.03) 4.67x0.65 :: Class me bhookha baithna padta hai
+  AUTO_SHAPE (1) (1.17,4.91) 0.11x0.11 :: 
+  TEXT_BOX (17) (1.47,4.81) 4.67x0.65 :: Ya order hi nahi karta — khaana chhod deta hai
+  AUTO_SHAPE (1) (6.82,2.35) 5.77x3.50 :: 
+  AUTO_SHAPE (1) (6.82,2.35) 0.07x3.50 :: 
+  TEXT_BOX (17) (7.24,2.68) 4.97x0.30 :: THE CAFÉ
+  AUTO_SHAPE (1) (7.24,3.35) 0.11x0.11 :: 
+  TEXT_BOX (17) (7.54,3.25) 4.67x0.65 :: Counter pe line = slow service
+  AUTO_SHAPE (1) (7.24,4.13) 0.11x0.11 :: 
+  TEXT_BOX (17) (7.54,4.03) 4.67x0.65 :: Dekh kar chale jaane wale = lost sales
+  AUTO_SHAPE (1) (7.24,4.91) 0.11x0.11 :: 
+  TEXT_BOX (17) (7.54,4.81) 4.67x0.65 :: Peak time pe staff overwhelmed
+  TEXT_BOX (17) (0.75,6.15) 11.83x0.40 :: Result: student ka time waste, café ka revenue loss — aur dono ke paas koi solution nahi.
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 03
+--- slide 4
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: WHY EXISTING APPS CAN'T FIX IT
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: Zomato / Swiggy yahan kaam nahi karta.
+  AUTO_SHAPE (1) (0.75,2.42) 3.82x3.05 :: 
+  TEXT_BOX (17) (1.07,2.72) 1.20x0.50 :: 01
+  TEXT_BOX (17) (1.07,3.42) 3.18x0.70 :: Delivery-first, not pickup-first
+  TEXT_BOX (17) (1.07,4.22) 3.18x1.00 :: Unka business ghar tak pahunchane me hai — campus counter se collect karne me nahi.
+  AUTO_SHAPE (1) (4.75,2.42) 3.82x3.05 :: 
+  TEXT_BOX (17) (5.07,2.72) 1.20x0.50 :: 02
+  TEXT_BOX (17) (5.07,3.42) 3.18x0.70 :: No class timetable
+  TEXT_BOX (17) (5.07,4.22) 3.18x1.00 :: Unhe pata hi nahi tumhara break kab hai. Unke liye har order 'ASAP' hai.
+  AUTO_SHAPE (1) (8.76,2.42) 3.82x3.05 :: 
+  TEXT_BOX (17) (9.08,2.72) 1.20x0.50 :: 03
+  TEXT_BOX (17) (9.08,3.42) 3.18x0.70 :: Delivery fee kills a ₹200 order
+  TEXT_BOX (17) (9.08,4.22) 3.18x1.00 :: ₹30 delivery fee lagao — student chala jaayega. Campus order ka ticket size chhota hota hai.
+  TEXT_BOX (17) (0.75,5.85) 11.83x0.40 :: Campus pickup ek alag category hai — uske liye alag product chahiye.
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 04
+--- slide 5
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: THE SOLUTION
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: ORDRIX = pre-order + pickup + café operations
+  AUTO_SHAPE (1) (0.75,2.55) 3.82x2.55 :: 
+  AUTO_SHAPE (1) (1.07,2.85) 0.42x0.42 :: 1
+  TEXT_BOX (17) (1.07,3.45) 3.18x0.35 :: Pickup windows
+  TEXT_BOX (17) (1.07,3.92) 3.18x1.00 :: Break-wise slots with fixed capacity. Café decide karta hai kitne orders per slot.
+  AUTO_SHAPE (1) (4.75,2.55) 3.82x2.55 :: 
+  AUTO_SHAPE (1) (5.07,2.85) 0.42x0.42 :: 2
+  TEXT_BOX (17) (5.07,3.45) 3.18x0.35 :: One pickup code
+  TEXT_BOX (17) (5.07,3.92) 3.18x1.00 :: OR-0427. Counter pe code bolo, 15 second me collect. Naam chillana khatam.
+  AUTO_SHAPE (1) (8.76,2.55) 3.82x2.55 :: 
+  AUTO_SHAPE (1) (9.08,2.85) 0.42x0.42 :: 3
+  TEXT_BOX (17) (9.08,3.45) 3.18x0.35 :: Café OS
+  TEXT_BOX (17) (9.08,3.92) 3.18x1.00 :: Live queue, menu, slots, taxes, refunds, audit log — sab ek dashboard me.
+  TEXT_BOX (17) (0.75,5.55) 11.83x0.40 :: Same app, dono side: student ko speed, café ko control.
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 05
+--- slide 6
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: STUDENT JOURNEY
+  TEXT_BOX (17) (0.75,0.98) 7.40x1.35 :: Order in class. 5 steps.
+  AUTO_SHAPE (1) (0.75,2.35) 1.36x0.72 :: 1 || Browse menu
+  AUTO_SHAPE (1) (2.11,2.62) 0.08x0.18 :: 
+  AUTO_SHAPE (1) (2.19,2.35) 1.36x0.72 :: 2 || Add to cart
+  AUTO_SHAPE (1) (3.55,2.62) 0.08x0.18 :: 
+  AUTO_SHAPE (1) (3.63,2.35) 1.36x0.72 :: 3 || Pickup slot
+  AUTO_SHAPE (1) (4.99,2.62) 0.08x0.18 :: 
+  AUTO_SHAPE (1) (5.07,2.35) 1.36x0.72 :: 4 || Pay online
+  AUTO_SHAPE (1) (6.43,2.62) 0.08x0.18 :: 
+  AUTO_SHAPE (1) (6.51,2.35) 1.36x0.72 :: 5 || Collect
+  AUTO_SHAPE (1) (0.75,3.54) 0.10x0.10 :: 
+  TEXT_BOX (17) (1.05,3.45) 3.60x0.30 :: No app install
+  TEXT_BOX (17) (1.05,3.73) 3.60x0.55 :: Browser me chalta hai — campus wifi pe turant khul jaata hai.
+  AUTO_SHAPE (1) (0.75,4.49) 0.10x0.10 :: 
+  TEXT_BOX (17) (1.05,4.40) 3.60x0.30 :: Slot = promise
+  TEXT_BOX (17) (1.05,4.68) 3.60x0.55 :: Student ko pata hai order kab ready hoga, class chhodni nahi padti.
+  AUTO_SHAPE (1) (0.75,5.44) 0.10x0.10 :: 
+  TEXT_BOX (17) (1.05,5.35) 3.60x0.30 :: One code, no queue
+  TEXT_BOX (17) (1.05,5.63) 3.60x0.55 :: Counter pe sirf code — verify, collect, done.
+  AUTO_SHAPE (1) (5.00,2.80) 1.55x3.16 :: 
+  AUTO_SHAPE (1) (4.88,2.67) 1.55x3.16 :: 
+  PICTURE (13) (4.95,2.74) 1.41x3.02 :: 
+  AUTO_SHAPE (1) (6.67,2.80) 1.55x3.16 :: 
+  AUTO_SHAPE (1) (6.55,2.67) 1.55x3.16 :: 
+  PICTURE (13) (6.62,2.74) 1.41x3.02 :: 
+  AUTO_SHAPE (1) (8.50,3.29) 4.15x2.65 :: 
+  AUTO_SHAPE (1) (8.38,3.16) 4.15x2.65 :: 
+  PICTURE (13) (8.45,3.23) 4.01x2.51 :: 
+  TEXT_BOX (17) (8.38,5.87) 4.15x0.25 :: Checkout — pickup window + live price breakup
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 06
+--- slide 7
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: THE DIFFERENTIATOR
+  TEXT_BOX (17) (0.75,0.98) 6.20x1.35 :: Slots, not “ASAP”
+  AUTO_SHAPE (1) (0.75,2.60) 0.10x0.10 :: 
+  TEXT_BOX (17) (1.05,2.50) 5.40x0.30 :: Break-wise windows
+  TEXT_BOX (17) (1.05,2.80) 5.40x0.60 :: 10:45–11:15, 13:00–14:00, 15:45–16:15 — college ke timetable ke hisaab se.
+  AUTO_SHAPE (1) (0.75,3.58) 0.10x0.10 :: 
+  TEXT_BOX (17) (1.05,3.48) 5.40x0.30 :: Fixed capacity
+  TEXT_BOX (17) (1.05,3.78) 5.40x0.60 :: Har slot me 25–40 orders. Kitchen ek saath overwhelm nahi hota.
+  AUTO_SHAPE (1) (0.75,4.56) 0.10x0.10 :: 
+  TEXT_BOX (17) (1.05,4.46) 5.40x0.30 :: Café ke control me
+  TEXT_BOX (17) (1.05,4.76) 5.40x0.60 :: Full ya band slot hide — student ko sirf valid options dikhte hain.
+  AUTO_SHAPE (1) (0.75,5.54) 0.10x0.10 :: 
+  TEXT_BOX (17) (1.05,5.44) 5.40x0.30 :: Peak-hour management
+  TEXT_BOX (17) (1.05,5.74) 5.40x0.60 :: Lunch ka load pehle se pata hai — staff aur stock plan ho jaata hai.
+  AUTO_SHAPE (1) (6.67,2.41) 5.92x3.75 :: 
+  AUTO_SHAPE (1) (6.55,2.28) 5.92x3.75 :: 
+  PICTURE (13) (6.62,2.35) 5.78x3.61 :: 
+  TEXT_BOX (17) (6.55,6.10) 5.92x0.25 :: Staff → Pickup windows: create, capacity set, hide
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 07
+--- slide 8
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: CAFÉ SIDE
+  TEXT_BOX (17) (0.75,0.98) 5.60x1.35 :: Café ka control room
+  AUTO_SHAPE (1) (0.75,2.41) 0.09x0.09 :: 
+  TEXT_BOX (17) (1.03,2.32) 5.20x0.28 :: Live queue
+  TEXT_BOX (17) (1.03,2.59) 5.20x0.50 :: Realtime Socket.IO — bina refresh naye orders aate hain.
+  AUTO_SHAPE (1) (0.75,3.24) 0.09x0.09 :: 
+  TEXT_BOX (17) (1.03,3.15) 5.20x0.28 :: Status flow
+  TEXT_BOX (17) (1.03,3.42) 5.20x0.50 :: Placed → Accepted → Preparing → Ready → Collected.
+  AUTO_SHAPE (1) (0.75,4.07) 0.09x0.09 :: 
+  TEXT_BOX (17) (1.03,3.98) 5.20x0.28 :: Code verify
+  TEXT_BOX (17) (1.03,4.25) 5.20x0.50 :: Pickup code daalo, order collected mark ho jaata hai.
+  AUTO_SHAPE (1) (0.75,4.90) 0.09x0.09 :: 
+  TEXT_BOX (17) (1.03,4.81) 5.20x0.28 :: Refund-safe
+  TEXT_BOX (17) (1.03,5.08) 5.20x0.50 :: Paid order cancel = auto refund initiated, ledger me entry.
+  AUTO_SHAPE (1) (0.75,5.73) 0.09x0.09 :: 
+  TEXT_BOX (17) (1.03,5.64) 5.20x0.28 :: Pause anytime
+  TEXT_BOX (17) (1.03,5.91) 5.20x0.50 :: Kitchen full? Orders pause — student ko turant dikhta hai.
+  AUTO_SHAPE (1) (6.23,2.36) 6.24x3.95 :: 
+  AUTO_SHAPE (1) (6.11,2.23) 6.24x3.95 :: 
+  PICTURE (13) (6.18,2.30) 6.10x3.81 :: 
+  TEXT_BOX (17) (6.11,6.25) 6.24x0.25 :: Staff dashboard — live order queue with status stepper
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 08
+--- slide 9
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: OPERATIONS
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: Menu, pricing aur rules — sab café ke haath me
+  TEXT_BOX (17) (0.75,2.28) 3.82x0.30 :: Menu manager
+  TEXT_BOX (17) (0.75,2.60) 3.82x0.75 :: Categories, items, photos, veg/non-veg, prep time, availability, size options.
+  TEXT_BOX (17) (4.75,2.28) 3.82x0.30 :: Charges & rules
+  TEXT_BOX (17) (4.75,2.60) 3.82x0.75 :: Tax %, service fee, auto-accept timeout — dashboard se editable.
+  TEXT_BOX (17) (8.76,2.28) 3.82x0.30 :: Refunds panel
+  TEXT_BOX (17) (8.76,2.60) 3.82x0.75 :: Pending refunds list + "refund completed" action, audit log ke saath.
+  AUTO_SHAPE (1) (1.28,3.61) 4.80x3.05 :: 
+  AUTO_SHAPE (1) (1.16,3.48) 4.80x3.05 :: 
+  PICTURE (13) (1.23,3.55) 4.66x2.91 :: 
+  TEXT_BOX (17) (1.16,6.60) 4.80x0.25 :: Menu manager
+  AUTO_SHAPE (1) (7.28,3.61) 4.80x3.05 :: 
+  AUTO_SHAPE (1) (7.16,3.48) 4.80x3.05 :: 
+  PICTURE (13) (7.23,3.55) 4.66x2.91 :: 
+  TEXT_BOX (17) (7.16,6.60) 4.80x0.25 :: Café settings — tax, fees, auto-accept
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 09
+--- slide 10
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: ADMIN & TRUST
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: Multi-café scale ke liye admin layer
+  AUTO_SHAPE (1) (0.75,2.22) 3.82x0.92 :: 
+  TEXT_BOX (17) (1.01,2.38) 3.32x0.28 :: Platform stats
+  TEXT_BOX (17) (1.01,2.66) 3.32x0.42 :: Orders, revenue, refunds, users, status distribution
+  AUTO_SHAPE (1) (4.75,2.22) 3.82x0.92 :: 
+  TEXT_BOX (17) (5.01,2.38) 3.32x0.28 :: Moderation
+  TEXT_BOX (17) (5.01,2.66) 3.32x0.42 :: Users, roles, enable/disable, café pause
+  AUTO_SHAPE (1) (8.76,2.22) 3.82x0.92 :: 
+  TEXT_BOX (17) (9.02,2.38) 3.32x0.28 :: Audit trail
+  TEXT_BOX (17) (9.02,2.66) 3.32x0.42 :: Refunds ledger + har action ka audit log
+  TEXT_BOX (17) (0.75,3.30) 6.00x0.30 :: Roles:  student · staff · owner · admin
+  AUTO_SHAPE (1) (1.41,3.84) 4.48x2.85 :: 
+  AUTO_SHAPE (1) (1.29,3.71) 4.48x2.85 :: 
+  PICTURE (13) (1.36,3.78) 4.34x2.71 :: 
+  TEXT_BOX (17) (1.29,6.63) 4.48x0.25 :: Admin console — platform overview
+  AUTO_SHAPE (1) (7.56,3.84) 4.48x2.85 :: 
+  AUTO_SHAPE (1) (7.44,3.71) 4.48x2.85 :: 
+  PICTURE (13) (7.51,3.78) 4.34x2.71 :: 
+  TEXT_BOX (17) (7.44,6.63) 4.48x0.25 :: Order browser — filters, refunds, audit
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 10
+--- slide 11
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: HOW IT'S BUILT
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: Production-shape stack — prototype nahi
+  AUTO_SHAPE (1) (0.75,2.22) 3.82x0.72 :: Student app || (React)
+  AUTO_SHAPE (1) (4.75,2.22) 3.82x0.72 :: Café dashboard || (React)
+  AUTO_SHAPE (1) (8.76,2.22) 3.82x0.72 :: Admin console || (React)
+  AUTO_SHAPE (1) (2.27,3.08) 0.28x0.30 :: 
+  AUTO_SHAPE (1) (6.28,3.08) 0.28x0.30 :: 
+  AUTO_SHAPE (1) (10.28,3.08) 0.28x0.30 :: 
+  AUTO_SHAPE (1) (0.75,3.50) 11.83x0.78 :: REST API  ·  Node + Express + TypeScript  ·  Zod validation  ·  JWT httpOnly cookie
+  AUTO_SHAPE (1) (0.75,4.55) 5.82x0.78 :: SQLite · multi-tenant || cafés, menus, orders, refunds
+  AUTO_SHAPE (1) (6.77,4.55) 5.82x0.78 :: Socket.IO realtime || + 8s polling fallback
+  AUTO_SHAPE (1) (0.75,5.60) 11.83x0.72 :: Razorpay — order → checkout → signature verify  |  auto-refund on cancel  |  sandbox fallback
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 11
+--- slide 12
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: PROOF IT WORKS
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: Ye slide deck ka product nahi — chal raha hai
+  AUTO_SHAPE (1) (0.75,2.20) 2.88x1.42 :: 
+  TEXT_BOX (17) (1.03,2.36) 2.38x0.66 :: 30
+  TEXT_BOX (17) (1.03,3.05) 2.38x0.30 :: integration tests
+  AUTO_SHAPE (1) (3.75,2.20) 2.88x1.42 :: 
+  TEXT_BOX (17) (4.03,2.36) 2.38x0.66 :: 2
+  TEXT_BOX (17) (4.03,3.05) 2.38x0.30 :: outlets live
+  AUTO_SHAPE (1) (6.75,2.20) 2.88x1.42 :: 
+  TEXT_BOX (17) (7.03,2.36) 2.38x0.66 :: 74
+  TEXT_BOX (17) (7.03,3.05) 2.38x0.30 :: menu items
+  AUTO_SHAPE (1) (9.74,2.20) 2.88x1.42 :: 
+  TEXT_BOX (17) (10.02,2.36) 2.38x0.66 :: 4
+  TEXT_BOX (17) (10.02,3.05) 2.38x0.30 :: roles
+  AUTO_SHAPE (1) (0.75,4.05) 0.12x0.12 :: 
+  TEXT_BOX (17) (1.07,3.95) 5.42x0.40 :: Razorpay order → checkout → signature verify, sandbox fallback ke saath
+  AUTO_SHAPE (1) (6.77,4.05) 0.12x0.12 :: 
+  TEXT_BOX (17) (7.09,3.95) 5.42x0.40 :: Paid order cancel = auto refund + refunds ledger
+  AUTO_SHAPE (1) (0.75,4.60) 0.12x0.12 :: 
+  TEXT_BOX (17) (1.07,4.50) 5.42x0.40 :: Realtime updates, polling fallback (weak wifi pe bhi chalta hai)
+  AUTO_SHAPE (1) (6.77,4.60) 0.12x0.12 :: 
+  TEXT_BOX (17) (7.09,4.50) 5.42x0.40 :: Role-based guards — student / staff / owner / admin
+  AUTO_SHAPE (1) (0.75,5.15) 0.12x0.12 :: 
+  TEXT_BOX (17) (1.07,5.05) 5.42x0.40 :: Zod validation + central error handler
+  AUTO_SHAPE (1) (6.77,5.15) 0.12x0.12 :: 
+  TEXT_BOX (17) (7.09,5.05) 5.42x0.40 :: Audit log — login se refund tak har action
+  AUTO_SHAPE (1) (0.75,5.70) 0.12x0.12 :: 
+  TEXT_BOX (17) (1.07,5.60) 5.42x0.40 :: 2 outlets live: ORDRIX · UIET & IMSAR, MDU Rohtak
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 12
+--- slide 13
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: MARKET & BUSINESS
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: Pickup-first category, subscription model
+  TEXT_BOX (17) (0.75,2.32) 3.82x0.86 :: 45,000+
+  TEXT_BOX (17) (0.75,3.21) 3.82x0.30 :: colleges in India
+  TEXT_BOX (17) (4.75,2.32) 3.82x0.86 :: 10–15
+  TEXT_BOX (17) (4.75,3.21) 3.82x0.30 :: cafés per campus
+  TEXT_BOX (17) (8.76,2.32) 3.82x0.86 :: ₹20L
+  TEXT_BOX (17) (8.76,3.21) 3.82x0.30 :: MRR at 1,000 cafés
+  AUTO_SHAPE (1) (0.75,3.92) 11.83x0.03 :: 
+  TEXT_BOX (17) (0.75,4.25) 4.60x0.55 :: ₹1,500 – ₹2,500
+  TEXT_BOX (17) (0.75,4.85) 5.20x0.30 :: per café / month · zero commission
+  TEXT_BOX (17) (6.20,4.30) 6.30x0.40 :: 1,000 cafés × ₹2,000 = ₹20 lakh / month, recurring
+  TEXT_BOX (17) (6.20,4.78) 6.30x0.80 :: Café ke liye ye uski ek din ki sales se bhi kam hai — || badle me line, missed orders aur refund ka jhanjhat khatam.
+  TEXT_BOX (17) (0.75,5.85) 11.83x0.80 :: Why subscription, not commission:  ₹200 ka order — 5% commission = ₹10. Café ke liye || mehnga lagta hai, humare liye scale nahi karta. Flat monthly fee dono ke liye simple hai.
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 13
+--- slide 14
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: COMPETITION
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: Hum delivery market me nahi lad rahe
+  TABLE (19) (0.75,2.45) 10.40x3.50 :: 
+  TEXT_BOX (17) (0.75,6.20) 11.83x0.40 :: Humara moat: campus-specific pickup logic + café ka poora operations software. Copy karna easy nahi — data wahan hai.
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 14
+--- slide 15
+  TEXT_BOX (17) (0.75,0.62) 9.00x0.28 :: WHAT'S NEXT
+  TEXT_BOX (17) (0.75,0.98) 11.83x1.35 :: 3 steps aage, 3 log saath
+  AUTO_SHAPE (1) (0.75,2.25) 3.82x0.95 :: 
+  TEXT_BOX (17) (1.05,2.40) 3.32x0.25 :: 1 MONTH
+  TEXT_BOX (17) (1.05,2.68) 3.32x0.45 :: 3 aur cafés — MDU campus
+  AUTO_SHAPE (1) (4.75,2.25) 3.82x0.95 :: 
+  TEXT_BOX (17) (5.05,2.40) 3.32x0.25 :: 3 MONTHS
+  TEXT_BOX (17) (5.05,2.68) 3.32x0.45 :: Multi-campus + peak-hour analytics
+  AUTO_SHAPE (1) (8.76,2.25) 3.82x0.95 :: 
+  TEXT_BOX (17) (9.06,2.40) 3.32x0.25 :: 6 MONTHS
+  TEXT_BOX (17) (9.06,2.68) 3.32x0.45 :: 50 cafés, campus-wide launch
+  TEXT_BOX (17) (0.75,3.62) 3.00x0.25 :: TEAM
+  TEXT_BOX (17) (0.75,3.95) 3.82x0.32 :: Anirudh
+  TEXT_BOX (17) (0.75,4.28) 3.82x0.30 :: Product · Frontend
+  TEXT_BOX (17) (4.75,3.95) 3.82x0.32 :: Sagar
+  TEXT_BOX (17) (4.75,4.28) 3.82x0.30 :: Backend · Payments · Realtime
+  TEXT_BOX (17) (8.76,3.95) 3.82x0.32 :: Tushar
+  TEXT_BOX (17) (8.76,4.28) 3.82x0.30 :: Operations · Partnerships
+  AUTO_SHAPE (1) (0.75,4.95) 11.83x0.03 :: 
+  TEXT_BOX (17) (0.75,5.20) 11.83x0.35 :: ASK:  mentorship  ·  3 pilot cafés  ·  ek chance
+  TEXT_BOX (17) (0.75,5.75) 11.83x0.42 :: ORDRIX se pehle — break ka matlab tha line.
+  TEXT_BOX (17) (0.75,6.20) 11.83x0.42 :: ORDRIX ke baad — coffee, aur 5 minute apne liye.
+  TEXT_BOX (17) (0.75,6.98) 3.00x0.25 :: ORDRIX
+  TEXT_BOX (17) (3.40,6.98) 5.00x0.25 :: Campus pre-ordering platform
+  TEXT_BOX (17) (11.58,6.98) 1.00x0.25 :: 15

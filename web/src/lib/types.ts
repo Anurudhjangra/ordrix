@@ -124,7 +124,10 @@ export interface Charges {
 
 export interface PaymentConfig {
   mode: 'sandbox' | 'razorpay';
+  liveRequested?: boolean;
+  liveReady?: boolean;
   razorpayKeyId: string | null;
+  message?: string;
 }
 
 export interface PaymentInitResult {
@@ -137,6 +140,7 @@ export interface PaymentInitResult {
   currency?: string;
   razorpayOrderId?: string;
   razorpayKeyId?: string;
+  error?: string;
 }
 
 export interface OrderCreateInput {

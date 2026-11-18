@@ -60,9 +60,17 @@ const isDirectRun =
 
 if (isDirectRun) {
   const applied = runMigrations();
+  const { rebrandLegacyData } = await import('./rebrand.js');
+  const rebrand = rebrandLegacyData();
   if (applied.length) {
     console.log(`Applied ${applied.length} migration(s): ${applied.join(', ')}`);
   } else {
-    console.log('Database is up to date. No migrations applied.');
+    console.log('Database is up to date. No schema migrations applied.');
   }
+  if (rebrand.usersUpdated || rebrand.cafesUpdated || rebrand.tokensUpdated) {
+    console.log(
+      `Rebranded legacy data: ${rebrand.usersUpdated} user(s), ${rebrand.cafesUpdated} cafe record(s), ${rebrand.tokensUpdated} pickup token(s).`,
+    );
+  }
+  for (const warning of rebrand.warnings) console.warn(warning);
 }

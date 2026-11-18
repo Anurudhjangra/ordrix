@@ -64,13 +64,13 @@ describe('payments', () => {
 
   it('processes signed webhooks and ignores duplicates', async () => {
     const student = await agentFor('student');
-    const menu = await student.get('/api/cafes/cafe-my-frapey/menu');
+    const menu = await student.get('/api/cafes/ordrix/menu');
     const item = menu.body.items[0];
-    const slots = await student.get('/api/cafes/cafe-my-frapey/slots');
+    const slots = await student.get('/api/cafes/ordrix/slots');
     const created = await student
       .post('/api/orders')
       .send({
-        cafeId: 'cafe-my-frapey',
+        cafeId: 'ordrix',
         items: [{ menuItemId: item.id, quantity: 1 }],
         pickupSlotId: slots.body.slots[0].id,
         idempotencyKey: `webhook-${Date.now()}`,
@@ -146,13 +146,13 @@ describe('payments', () => {
 
   it('supports sandbox simulated failures without marking paid', async () => {
     const student = await agentFor('student');
-    const menu = await student.get('/api/cafes/cafe-my-frapey/menu');
+    const menu = await student.get('/api/cafes/ordrix/menu');
     const item = menu.body.items[0];
-    const slots = await student.get('/api/cafes/cafe-my-frapey/slots');
+    const slots = await student.get('/api/cafes/ordrix/slots');
     const created = await student
       .post('/api/orders')
       .send({
-        cafeId: 'cafe-my-frapey',
+        cafeId: 'ordrix',
         items: [{ menuItemId: item.id, quantity: 1 }],
         pickupSlotId: slots.body.slots[0].id,
         idempotencyKey: `fail-${Date.now()}`,

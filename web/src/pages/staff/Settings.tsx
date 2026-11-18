@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { apiGet, apiPost, apiPut } from '../../lib/api';
 import { formatPaise } from '../../lib/format';
 import { Alert, Button, Field, Input, Loader, SectionTitle } from '../../components/ui';
+import { OutletSelect } from './OutletSelect';
 
 interface Settings {
   taxPercent: number;
@@ -13,6 +14,8 @@ interface Settings {
 export function StaffSettingsPage() {
   const [settings, setSettings] = useState<Settings | null>(null);
   const [cafeId, setCafeId] = useState<string | null>(null);
+  const [cafes, setCafes] = useState<{ id: string; name: string }[]>([]);
+  const [selectedCafeId, setSelectedCafeId] = useState<string | null>(null);
   const [accepting, setAccepting] = useState<boolean | null>(null);
   const [pauseReason, setPauseReason] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -21,12 +24,20 @@ export function StaffSettingsPage() {
 
   useEffect(() => {
     (async () => {
+      setSettings(null);
       try {
-        const res = await apiGet<{ cafeId: string; settings: Settings }>('/api/staff/dashboard');
-        setCafeId(res.cafeId);
+        const qs = selectedCafeId ? `?cafeId=${encodeURIComponent(selectedCafeId)}` : '';
+        const res = await apiGet<{ cafeId: string; cafes: { id: string; name: string }[]; settings: Settings }>(
+          `/api/staff/dashboard${qs}`,
+        );
+        const activeCafeId = selectedCafeId ?? res.cafeId;
+        setCafeId(activeCafeId);
+        setCafes(res.cafes);
         setSettings(res.settings);
-        const cafes = await apiGet<{ cafes: { id: string; is_accepting_orders: number; pause_reason: string | null }[] }>('/api/cafes');
-        const mine = cafes.cafes.find((c) => c.id === res.cafeId);
+        const publicCafes = await apiGet<{
+          cafes: { id: string; is_accepting_orders: number; pause_reason: string | null }[];
+        }>('/api/cafes');
+        const mine = publicCafes.cafes.find((c) => c.id === activeCafeId);
         if (mine) {
           setAccepting(mine.is_accepting_orders === 1);
           setPauseReason(mine.pause_reason ?? '');
@@ -35,7 +46,7 @@ export function StaffSettingsPage() {
         setError((e as Error).message);
       }
     })();
-  }, []);
+  }, [selectedCafeId]);
 
   const saveSettings = async (field: keyof Settings, value: number) => {
     if (!value || value < 0) return;
@@ -72,7 +83,12 @@ export function StaffSettingsPage() {
 
   return (
     <div>
-      <SectionTitle title="Cafe settings" subtitle="Charges, auto-accept timeouts, and order availability." />
+      <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+        <SectionTitle title="Cafe settings" subtitle="Charges, auto-accept timeouts, and order availability." />
+        {cafeId ? (
+          <OutletSelect cafes={cafes} value={cafeId} onChange={setSelectedCafeId} />
+        ) : null}
+      </div>
       {error ? <div className="mb-4"><Alert>{error}</Alert></div> : null}
       {saved ? <div className="mb-4"><Alert kind="success">Settings saved.</Alert></div> : null}
 

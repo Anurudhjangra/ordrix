@@ -39,13 +39,13 @@ export function RegisterPage() {
               <IconCup size={22} />
             </span>
             <span className="font-display text-xl font-extrabold text-cream-50">
-              Cafe <span className="text-gradient">My Frappe</span>
+              <span className="text-gradient">ORDRIX</span>
             </span>
           </span>
         </div>
         <div className="relative">
           <h2 className="font-display text-3xl font-black leading-tight text-cream-50">
-            Your frappe,
+            Your order,
             <br />
             ready when <span className="text-gradient">you are.</span>
           </h2>
@@ -63,7 +63,7 @@ export function RegisterPage() {
       {/* Form panel */}
       <div className="p-6 sm:p-10">
         <h1 className="font-display text-2xl font-extrabold text-coffee-900">Create your account</h1>
-        <p className="mb-6 mt-1 text-sm text-stone-500">Join to start pre-ordering from Cafe My Frappe.</p>
+        <p className="mb-6 mt-1 text-sm text-stone-500">Join to start pre-ordering from ORDRIX.</p>
         <form onSubmit={onSubmit} className="grid gap-4">
           {error ? <Alert>{error}</Alert> : null}
           <Field label="Full name">

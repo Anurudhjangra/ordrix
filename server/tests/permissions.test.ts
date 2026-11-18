@@ -24,7 +24,7 @@ describe('roles and permissions', () => {
     const student = await agentFor('student');
     const dash = await student.get('/api/staff/dashboard');
     expect(dash.status).toBe(403);
-    const verify = await student.post('/api/staff/pickup/verify').send({ token: 'MF-0001' });
+    const verify = await student.post('/api/staff/pickup/verify').send({ token: 'OR-0001' });
     expect(verify.status).toBe(403);
     const refund = await student.post('/api/staff/orders/x/refund').send({});
     expect(refund.status).toBe(403);
@@ -55,7 +55,7 @@ describe('roles and permissions', () => {
 
   it('keeps one cafe\'s staff away from another cafe\'s data', async () => {
     addCafeAndItem();
-    const owner = await agentFor('owner'); // belongs to cafe-my-frapey
+    const owner = await agentFor('owner'); // belongs to ordrix
     const dashes = await owner.get('/api/staff/dashboard?cafeId=cafe-two');
     expect(dashes.status).toBe(403);
     const menu = await owner.get('/api/staff/menu?cafeId=cafe-two');

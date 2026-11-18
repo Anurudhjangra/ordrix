@@ -1,6 +1,6 @@
-# Cafe My Frappe - Server (API)
+# ORDRIX - Server (API)
 
-Node.js + Express + TypeScript + SQLite + Socket.IO backend for Cafe My Frappe campus pre-ordering app.
+Node.js + Express + TypeScript + SQLite + Socket.IO backend for ORDRIX campus pre-ordering app.
 
 ## Tech Stack
 - **Runtime**: Node.js >= 22.5
@@ -72,6 +72,6 @@ Socket.IO on same server. Events: `order:created`, `order:updated`, `notificatio
 - `trust proxy` enabled for behind proxies/load balancers
 
 ## Default Accounts (seed)
-- Admin: `admin@cafemyfrapey.test` / `Admin@12345`
-- Owner: `owner@cafemyfrapey.test` / `Owner@12345`
+- Admin: `admin@ordrix.test` / `Admin@12345`
+- Owner: `owner@ordrix.test` / `Owner@12345`
 - Student: `student@mdu.test` / `Student@12345`

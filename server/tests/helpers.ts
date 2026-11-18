@@ -56,15 +56,15 @@ export async function createPaidOrder(
   agent: any,
   override: Partial<{ quantity: number; items: unknown[]; slotId: string }> = {},
 ): Promise<OrderFixture> {
-  const menu = await agent.get('/api/cafes/cafe-my-frapey/menu');
+  const menu = await agent.get('/api/cafes/ordrix/menu');
   const item = (menu.body.items as { id: string; name: string }[])[0];
-  const slots = await agent.get('/api/cafes/cafe-my-frapey/slots');
+  const slots = await agent.get('/api/cafes/ordrix/slots');
   const slot = (slots.body.slots as { id: string; remaining: number }[])[0];
   const items = override.items ?? [{ menuItemId: item.id, quantity: override.quantity ?? 1 }];
   const res = await agent
     .post('/api/orders')
     .send({
-      cafeId: 'cafe-my-frapey',
+      cafeId: 'ordrix',
       items,
       pickupSlotId: override.slotId ?? slot.id,
       idempotencyKey: `test-${Math.random().toString(36).slice(2)}${Date.now()}`,

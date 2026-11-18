@@ -1,8 +1,9 @@
 import { run, tx } from './index.js';
+import { CAFE_ID, SECOND_CAFE_ID } from './branding.js';
 import { runMigrations } from './migrate.js';
 import { seed } from './seed.js';
 
-const CAFE_IDS = ['cafe-my-frapey', 'cafe-my-frappe-imsar'];
+const CAFE_IDS = [CAFE_ID, SECOND_CAFE_ID];
 
 /**
  * Clear every outlet's menu (categories, items and their options) and re-insert

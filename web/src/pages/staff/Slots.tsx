@@ -2,26 +2,37 @@ import { useCallback, useEffect, useState } from 'react';
 import { apiDelete, apiGet, apiPatch, apiPost } from '../../lib/api';
 import { Alert, Button, Field, Input, Loader, Modal, SectionTitle } from '../../components/ui';
 import type { SlotAvailability } from '../../lib/types';
+import { OutletSelect } from './OutletSelect';
 
 export function StaffSlotsPage() {
   const [cafeId, setCafeId] = useState<string | null>(null);
+  const [cafes, setCafes] = useState<{ id: string; name: string }[]>([]);
+  const [selectedCafeId, setSelectedCafeId] = useState<string | null>(null);
   const [slots, setSlots] = useState<SlotAvailability[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [showCreate, setShowCreate] = useState(false);
 
   const load = useCallback(async () => {
+    setLoading(true);
     try {
-      const res = await apiGet<{ cafeId: string }>('/api/staff/dashboard');
-      setCafeId(res.cafeId);
-      const s = await apiGet<{ slots: SlotAvailability[] }>(`/api/staff/slots?cafeId=${res.cafeId}`);
+      const qs = selectedCafeId ? `?cafeId=${encodeURIComponent(selectedCafeId)}` : '';
+      const res = await apiGet<{ cafeId: string; cafes: { id: string; name: string }[] }>(
+        `/api/staff/dashboard${qs}`,
+      );
+      const activeCafeId = selectedCafeId ?? res.cafeId;
+      setCafes(res.cafes);
+      setCafeId(activeCafeId);
+      const s = await apiGet<{ slots: SlotAvailability[] }>(
+        `/api/staff/slots?cafeId=${encodeURIComponent(activeCafeId)}`,
+      );
       setSlots(s.slots);
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [selectedCafeId]);
 
   useEffect(() => {
     load();
@@ -51,7 +62,12 @@ export function StaffSlotsPage() {
 
   return (
     <div>
-      <SectionTitle title="Pickup windows" subtitle="Slots students choose at checkout. Capacity limits orders per window." />
+      <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+        <SectionTitle title="Pickup windows" subtitle="Slots students choose at checkout. Capacity limits orders per window." />
+        {cafeId ? (
+          <OutletSelect cafes={cafes} value={cafeId} onChange={setSelectedCafeId} />
+        ) : null}
+      </div>
       {error ? <div className="mb-4"><Alert>{error}</Alert></div> : null}
 
       <div className="mb-6">
