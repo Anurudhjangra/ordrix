@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
+import fs from 'node:fs';
 import path from 'node:path';
 import { config, SERVER_ROOT, isAllowedOrigin } from './config.js';
 import { authRouter } from './modules/auth/routes.js';
@@ -112,6 +113,22 @@ export function createApp(): Express {
   app.use('/api/staff', writeLimiter, staffRouter);
   app.use('/api/notifications', notificationsRouter);
   app.use('/api/admin', adminRouter);
+
+  // In production a single Node process serves both the API and the built SPA.
+  // API/Socket.IO paths are left alone so they still reach their own handlers.
+  if (config.isProd) {
+    const webDist = path.resolve(SERVER_ROOT, '../web/dist');
+    const indexHtml = path.join(webDist, 'index.html');
+    if (fs.existsSync(indexHtml)) {
+      app.use(express.static(webDist, { maxAge: '1h' }));
+      app.get('*', (req, res, next) => {
+        if (req.path.startsWith('/api') || req.path.startsWith('/socket.io')) return next();
+        res.sendFile(indexHtml);
+      });
+    } else {
+      console.warn(`[startup] Frontend build not found at ${indexHtml}; API-only mode.`);
+    }
+  }
 
   app.use(notFoundHandler);
   app.use(errorHandler);

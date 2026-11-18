@@ -1,5 +1,7 @@
+import fs from 'node:fs';
 import http from 'node:http';
-import { config } from './config.js';
+import path from 'node:path';
+import { config, SERVER_ROOT } from './config.js';
 import { createApp } from './app.js';
 import { initRealtime } from './realtime.js';
 import { runMigrations } from './db/migrate.js';
@@ -8,8 +10,29 @@ import { seed } from './db/seed.js';
 import { all, get, getDb } from './db/index.js';
 import { flagTimedOutOrders, updateOrderStatus } from './modules/orders/service.js';
 
+/**
+ * On a fresh persistent disk there is no SQLite file yet. Copy the bundled
+ * ORDRIX database into place once so existing orders/menu/history survive the
+ * first deploy. Later deploys leave the persistent database untouched.
+ */
+function bootstrapDatabaseFile(): void {
+  if (config.databaseUrl === ':memory:') return;
+  try {
+    if (fs.statSync(config.databaseUrl).size > 0) return;
+  } catch {
+    /* file does not exist yet */
+  }
+
+  const bundled = path.join(SERVER_ROOT, 'data', 'cafe.db');
+  if (!fs.existsSync(bundled)) return;
+  fs.mkdirSync(path.dirname(config.databaseUrl), { recursive: true });
+  fs.copyFileSync(bundled, config.databaseUrl);
+  console.log(`[startup] Imported bundled database into ${config.databaseUrl}`);
+}
+
 function bootstrapDatabase(): void {
   try {
+    bootstrapDatabaseFile();
     runMigrations();
     const rebrand = rebrandLegacyData();
     if (rebrand.usersUpdated || rebrand.cafesUpdated || rebrand.tokensUpdated) {
