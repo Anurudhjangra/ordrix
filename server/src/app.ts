@@ -24,7 +24,39 @@ export function createApp(): Express {
   app.use(
     helmet({
       crossOriginResourcePolicy: { policy: 'cross-origin' },
-      contentSecurityPolicy: config.isProd ? undefined : false,
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          // Razorpay Checkout is injected from its own CDN and opens a
+          // hosted payment frame. Helmet's default `script-src 'self'`
+          // blocks both in production, so allow Razorpay explicitly.
+          'script-src': [
+            "'self'",
+            'https://checkout.razorpay.com',
+            'https://api.razorpay.com',
+            'https://*.razorpay.com',
+          ],
+          'connect-src': [
+            "'self'",
+            'https://checkout.razorpay.com',
+            'https://api.razorpay.com',
+            'https://*.razorpay.com',
+          ],
+          'frame-src': [
+            "'self'",
+            'https://checkout.razorpay.com',
+            'https://api.razorpay.com',
+            'https://*.razorpay.com',
+          ],
+          'img-src': [
+            "'self'",
+            'data:',
+            'https://checkout.razorpay.com',
+            'https://api.razorpay.com',
+            'https://*.razorpay.com',
+          ],
+        },
+      },
     }),
   );
 
