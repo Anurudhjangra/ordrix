@@ -1,0 +1,16 @@
+name: Keep ORDRIX Render awake
+
+# Render Free web services spin down after 15 minutes of inactivity and show a
+# "SERVICE WAKING UP" page for about a minute. A lightweight health ping every
+# 10 minutes keeps this service warm without any paid plan.
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping health endpoint
+        run: curl --fail --silent --show-error https://ordrix-goel.onrender.com/api/health
